@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Карта CatWar</title>
+    <script>
+      (function () {
+        var loc = window.location;
+        sessionStorage.setItem(
+          'cw-map-redirect',
+          loc.pathname + loc.search + loc.hash,
+        );
+        var path = loc.pathname;
+        var cut = path.lastIndexOf('/');
+        var dir = path.slice(0, cut + 1) || '/';
+        loc.replace(dir + loc.search + loc.hash);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
