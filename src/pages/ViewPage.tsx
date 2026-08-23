@@ -34,7 +34,6 @@ export function ViewPage() {
   const [hashError, setHashError] = useState<string | null>(null);
   const [fromId, setFromId] = useState('');
   const [toId, setToId] = useState('');
-  const [selectedId, setSelectedId] = useState<string | null>(null);
   const [shareUrl, setShareUrl] = useState<string | null>(null);
   const [shareError, setShareError] = useState<string | null>(null);
   const [exportError, setExportError] = useState<string | null>(null);
@@ -119,8 +118,32 @@ export function ViewPage() {
     }
   };
 
+  const pickerLocations = useMemo(
+    () =>
+      map.locations.map((l) => ({
+        value: l.id,
+        label: locationLabel(l, map.locations),
+      })),
+    [map.locations],
+  );
+
+  const pickRouteLocation = (id: string) => {
+    if (fromId && id === fromId) {
+      setFromId('');
+      setToId('');
+      return;
+    }
+    if (!fromId) {
+      setFromId(id);
+      return;
+    }
+    setToId(id);
+  };
+
   const fromLoc = map.locations.find((l) => l.id === fromId);
   const toLoc = map.locations.find((l) => l.id === toId);
+  const fromLabel = fromLoc ? locationLabel(fromLoc, map.locations) : '';
+  const toLabel = toLoc ? locationLabel(toLoc, map.locations) : '';
 
   return (
     <div
@@ -196,11 +219,12 @@ export function ViewPage() {
 
         <MapCanvas
           map={map}
-          selectedId={selectedId}
           readOnly
           pathLocationIds={path?.locationIds ?? []}
           pathEdgeIds={path?.edgeIds ?? []}
-          onSelect={setSelectedId}
+          routeFromId={fromId || null}
+          routeToId={toId || null}
+          onLocationClick={pickRouteLocation}
         />
       </div>
 
@@ -223,23 +247,20 @@ export function ViewPage() {
           <label className="mb-1.5 block text-xs font-semibold tracking-wide text-gray-500 uppercase">
             Маршрут (по числу переходов)
           </label>
+          <p className="mb-2 text-[11px] leading-relaxed text-gray-400">
+            Можно выбрать локации кликом по карте.
+          </p>
           <div className="mb-3 flex flex-col gap-3">
             <LocationPicker
               value={fromId}
               onChange={setFromId}
-              locations={map.locations.map((l) => ({
-                value: l.id,
-                label: locationLabel(l, map.locations),
-              }))}
+              locations={pickerLocations}
               noneLabel="Откуда"
             />
             <LocationPicker
               value={toId}
               onChange={setToId}
-              locations={map.locations.map((l) => ({
-                value: l.id,
-                label: locationLabel(l, map.locations),
-              }))}
+              locations={pickerLocations}
               noneLabel="Куда"
             />
           </div>
@@ -251,7 +272,7 @@ export function ViewPage() {
             </p>
           ) : path && path.hops.length === 0 ? (
             <p className="mb-4 text-xs text-gray-600">
-              Вы уже здесь — {fromLoc?.name || 'эта локация'}.
+              Вы уже здесь — {fromLabel || 'эта локация'}.
             </p>
           ) : path ? (
             <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 p-3">
@@ -268,7 +289,8 @@ export function ViewPage() {
                   const loc = map.locations.find((l) => l.id === id);
                   return (
                     <li key={`${id}-${i}`} className="text-xs text-gray-700">
-                      {i + 1}. {loc?.name ?? id}
+                      {i + 1}.{' '}
+                      {loc ? locationLabel(loc, map.locations) : id}
                     </li>
                   );
                 })}
@@ -276,7 +298,7 @@ export function ViewPage() {
             </div>
           ) : (
             <p className="mb-4 text-xs text-red-500">
-              Пути из «{fromLoc?.name}» в «{toLoc?.name}» нет.
+              Пути из «{fromLabel}» в «{toLabel}» нет.
             </p>
           )}
 

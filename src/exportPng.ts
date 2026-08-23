@@ -1,5 +1,12 @@
 import { cellFill } from './edgeKinds';
 import {
+  captionsForLocation,
+  CHIP_FONT_PX,
+  CHIP_MAX_W,
+  CHIP_PAD_X,
+  layoutEdgeCaptions,
+} from './edgeLabels';
+import {
   emptyCellFill,
   usableBackgroundUrl,
 } from './locationBackground';
@@ -168,6 +175,13 @@ function measureBounds(
     const box = cardBox(loc);
     include(box.minX, box.minY);
     include(box.maxX, box.maxY);
+    const m = cardMetrics(loc);
+    const originX = loc.x + m.pad;
+    const originY = loc.y + m.titleH + m.pad;
+    for (const cap of layoutEdgeCaptions(captionsForLocation(map, loc.id))) {
+      include(originX + cap.chipX, originY + cap.chipY);
+      include(originX + cap.chipX + cap.chipW, originY + cap.chipY + cap.chipH);
+    }
   }
   for (const pts of polylines) {
     for (const p of pts) include(p.x, p.y);
@@ -269,6 +283,7 @@ function drawCard(
   }
 
   drawMiniGrid(ctx, map, loc.id, frameX + m.pad, frameY + m.pad, bgImage);
+  drawCaptions(ctx, map, loc.id, frameX + m.pad, frameY + m.pad);
 }
 
 function tribeFill(
@@ -331,6 +346,59 @@ function drawMiniGrid(
         cellH,
       );
     }
+  }
+  ctx.restore();
+}
+
+function drawCaptions(
+  ctx: CanvasRenderingContext2D,
+  map: CwMap,
+  locationId: string,
+  originX: number,
+  originY: number,
+): void {
+  const layouts = layoutEdgeCaptions(
+    captionsForLocation(map, locationId),
+    (text) => {
+      ctx.font = `${CHIP_FONT_PX}px Inter, sans-serif`;
+      return Math.min(
+        CHIP_MAX_W,
+        ctx.measureText(text).width + CHIP_PAD_X * 2,
+      );
+    },
+  );
+  if (layouts.length === 0) return;
+
+  ctx.save();
+  ctx.lineCap = 'round';
+  for (const cap of layouts) {
+    ctx.strokeStyle = 'rgba(255,255,255,0.32)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(originX + cap.anchorX, originY + cap.anchorY);
+    ctx.lineTo(originX + cap.tipX, originY + cap.tipY);
+    ctx.stroke();
+
+    ctx.fillStyle = 'rgba(20,20,20,0.9)';
+    roundRect(
+      ctx,
+      originX + cap.chipX,
+      originY + cap.chipY,
+      cap.chipW,
+      cap.chipH,
+      3,
+    );
+    ctx.fill();
+
+    ctx.fillStyle = '#f5f5f5';
+    ctx.font = `${CHIP_FONT_PX}px Inter, sans-serif`;
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(
+      fitText(ctx, cap.text, cap.chipW - CHIP_PAD_X * 2),
+      originX + cap.chipX + CHIP_PAD_X,
+      originY + cap.chipY + cap.chipH / 2,
+    );
   }
   ctx.restore();
 }

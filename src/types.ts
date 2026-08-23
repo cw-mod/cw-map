@@ -1,4 +1,4 @@
-export const MAP_VERSION = 7;
+export const MAP_VERSION = 9;
 
 export const GRID_COLS = 10;
 export const GRID_ROWS = 6;
@@ -16,7 +16,8 @@ export type EdgeKind =
   | 'climb'
   | 'swim'
   | 'tunnel'
-  | 'forbidden';
+  | 'forbidden'
+  | 'deadend';
 
 export const OFFMAP_KINDS = [
   'camp',
@@ -24,6 +25,7 @@ export const OFFMAP_KINDS = [
   'swim',
   'tunnel',
   'forbidden',
+  'deadend',
 ] as const;
 export type OffmapKind = (typeof OFFMAP_KINDS)[number];
 
@@ -52,6 +54,8 @@ export interface Edge {
   toCell?: Cell;
   /** Optional name of the other map / camp for off-map exits. */
   label?: string;
+  /** Draw `label` on the map next to the exit cell. Missing = hidden. */
+  showLabel?: boolean;
   /** World-space corridor point for the orthogonal polyline. */
   elbow?: { x: number; y: number };
 }

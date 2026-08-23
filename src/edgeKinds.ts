@@ -15,6 +15,7 @@ export const EDGE_KIND_UI: Record<EdgeKind, EdgeKindUi> = {
   swim: { label: 'Плавательные', color: '#2dd4bf' },
   tunnel: { label: 'Туннели', color: '#a8a29e' },
   forbidden: { label: 'Проход запрещён', color: '#ef4444' },
+  deadend: { label: 'Тупик', color: '#c084fc' },
 };
 
 export function isOffmapKind(value: string): value is OffmapKind {
@@ -23,6 +24,15 @@ export function isOffmapKind(value: string): value is OffmapKind {
 
 export function isOffmapEdge(edge: Edge): boolean {
   return isOffmapKind(edge.kind);
+}
+
+/** «Другое»: сама в себя + off-map exits. */
+export function isOtherGroupKind(value: string): boolean {
+  return value === 'self' || isOffmapKind(value);
+}
+
+export function isOtherGroupEdge(edge: Edge): boolean {
+  return isOtherGroupKind(edge.kind);
 }
 
 export function edgeKindOf(edge: Edge): EdgeKind {

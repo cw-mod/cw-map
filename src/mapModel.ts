@@ -128,9 +128,19 @@ export function cellKind(
   return 'empty';
 }
 
+function compareLocationsStable(a: Location, b: Location): number {
+  if (a.y !== b.y) return a.y - b.y;
+  if (a.x !== b.x) return a.x - b.x;
+  return a.id.localeCompare(b.id);
+}
+
+/** Same name → «Роща», «Роща (2)» by canvas position, then id. */
 export function locationLabel(loc: Location, all: Location[]): string {
-  const duplicates = all.filter((other) => other.name === loc.name).length > 1;
-  return duplicates ? `${loc.name} (${loc.id})` : loc.name;
+  const same = all.filter((other) => other.name === loc.name);
+  if (same.length <= 1) return loc.name;
+  const ordered = [...same].sort(compareLocationsStable);
+  const index = ordered.findIndex((other) => other.id === loc.id);
+  return index <= 0 ? loc.name : `${loc.name} (${index + 1})`;
 }
 
 export function downloadJson(data: unknown, filename: string): void {
@@ -272,6 +282,7 @@ function parseEdge(value: unknown, index: number): Edge {
       : undefined;
   const kind = parseEdgeKind(rec.kind, rec.fromLocationId, toId);
   const label = typeof rec.label === 'string' ? rec.label.trim() : '';
+  const showLabel = rec.showLabel === true;
   const elbow = parseElbow(rec.elbow);
 
   if (isOffmapKind(kind)) {
@@ -281,6 +292,7 @@ function parseEdge(value: unknown, index: number): Edge {
       fromLocationId: rec.fromLocationId,
       fromCell,
       ...(label ? { label } : {}),
+      ...(showLabel ? { showLabel: true } : {}),
       ...(elbow ? { elbow } : {}),
     };
   }
@@ -296,6 +308,7 @@ function parseEdge(value: unknown, index: number): Edge {
     toLocationId: toId,
     toCell: parseCell(rec.toCell, `edges[${index}].toCell`),
     ...(label ? { label } : {}),
+    ...(showLabel ? { showLabel: true } : {}),
     ...(elbow ? { elbow } : {}),
   };
 }
@@ -659,6 +672,27 @@ export function upsertOutgoingEdge(
   }
 
   return draft;
+}
+
+export function patchEdge(
+  map: CwMap,
+  id: string,
+  patch: Partial<Pick<Edge, 'label' | 'showLabel'>>,
+): CwMap {
+  return {
+    ...map,
+    edges: map.edges.map((edge) => {
+      if (edge.id !== id) return edge;
+      const next: Edge = { ...edge, ...patch };
+      if (patch.label !== undefined) {
+        const trimmed = patch.label.trim();
+        if (trimmed) next.label = trimmed;
+        else delete next.label;
+      }
+      if (next.showLabel !== true) delete next.showLabel;
+      return next;
+    }),
+  };
 }
 
 export function removeEdge(map: CwMap, edgeId: string): CwMap {

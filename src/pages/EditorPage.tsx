@@ -44,6 +44,7 @@ import {
   locationLabel,
   outgoingFrom,
   parseMapText,
+  patchEdge,
   patchLocation,
   pickFreeCell,
   removeEdge,
@@ -61,6 +62,8 @@ import {
   edgeKindOf,
   isOffmapEdge,
   isOffmapKind,
+  isOtherGroupEdge,
+  isOtherGroupKind,
 } from '../edgeKinds';
 import {
   emptyCellFill,
@@ -121,6 +124,7 @@ export function EditorPage() {
   const [formTarget, setFormTarget] = useState('self');
   const [formNewName, setFormNewName] = useState('Новая локация');
   const [formLabel, setFormLabel] = useState('');
+  const [formShowLabel, setFormShowLabel] = useState(false);
   const [formBidir, setFormBidir] = useState(false);
   const [shareUrl, setShareUrl] = useState<string | null>(null);
   const [shareError, setShareError] = useState<string | null>(null);
@@ -315,6 +319,7 @@ export function EditorPage() {
             : (existing.toLocationId ?? 'self'),
       );
       setFormLabel(existing.label ?? '');
+      setFormShowLabel(existing.showLabel === true);
       setFormBidir(Boolean(findReverse(map, existing)));
     } else {
       setFormCell(cell);
@@ -322,6 +327,7 @@ export function EditorPage() {
       setFormTarget('self');
       setFormBidir(false);
       setFormLabel('');
+      setFormShowLabel(false);
       setFormNewName(nextLocationName(map));
     }
   };
@@ -343,6 +349,7 @@ export function EditorPage() {
         fromLocationId: selectedId,
         fromCell: formCell,
         ...(note ? { label: note } : {}),
+        ...(formShowLabel ? { showLabel: true } : {}),
       };
       applyMap(upsertOutgoingEdge(map, edge, false));
       setFormCell(null);
@@ -376,6 +383,8 @@ export function EditorPage() {
       fromCell: formCell,
       toLocationId,
       toCell,
+      ...(toSelf && note ? { label: note } : {}),
+      ...(toSelf && formShowLabel ? { showLabel: true } : {}),
     };
     applyMap(
       upsertOutgoingEdge(working, edge, !toSelf && formBidir),
@@ -534,6 +543,19 @@ export function EditorPage() {
                 e.id === edgeId ? { ...e, elbow } : e,
               ),
             }))
+          }
+          captionPreview={
+            selectedId &&
+            formCell &&
+            formShowLabel &&
+            formLabel.trim() &&
+            isOtherGroupKind(formTarget)
+              ? {
+                  locationId: selectedId,
+                  cell: formCell,
+                  text: formLabel.trim(),
+                }
+              : null
           }
         />
       </div>
@@ -811,7 +833,7 @@ export function EditorPage() {
               <p className="mt-1.5 text-[10px] text-gray-400">
                 Серая = локация · Синяя = в себя · Оранж. = лагерь · Беж. =
                 лазалки · Бирюз. = плавательные · Сер. = туннели · Красн. =
-                запрещён · Жёлтая = выбрана
+                запрещён · Фиол. = тупик · Жёлтая = выбрана
               </p>
             </div>
 
@@ -881,7 +903,7 @@ export function EditorPage() {
                       />
                     </div>
                   )}
-                  {isOffmapKind(formTarget) && (
+                  {isOtherGroupKind(formTarget) && (
                     <div>
                       <label className="mb-1 block text-[10px] font-semibold text-gray-400 uppercase">
                         Подпись (необязательно)
@@ -892,6 +914,16 @@ export function EditorPage() {
                         onChange={(e) => setFormLabel(e.target.value)}
                         placeholder="Название той карты или лагеря"
                       />
+                      <label className="mt-2 flex cursor-pointer items-center gap-2 text-xs text-gray-700 select-none">
+                        <input
+                          type="checkbox"
+                          className="h-3.5 w-3.5 rounded"
+                          checked={formShowLabel}
+                          onChange={(e) => setFormShowLabel(e.target.checked)}
+                          style={{ accentColor: '#2c2c2c' }}
+                        />
+                        Показать подпись на карте
+                      </label>
                     </div>
                   )}
                   {formTarget !== 'self' && !isOffmapKind(formTarget) && (
@@ -943,16 +975,20 @@ export function EditorPage() {
                     const kind = edgeKindOf(t);
                     const off = isOffmapEdge(t);
                     const self = isSelfLoop(t);
+                    const other = isOtherGroupEdge(t);
                     const tName = off
                       ? t.label
                         ? `${EDGE_KIND_UI[kind].label} · ${t.label}`
                         : EDGE_KIND_UI[kind].label
                       : self
-                        ? 'Сама в себя'
+                        ? t.label
+                          ? `Сама в себя · ${t.label}`
+                          : 'Сама в себя'
                         : (map.locations.find((l) => l.id === t.toLocationId)
                             ?.name ?? '?');
                     const isActive = formEditId === t.id;
                     const bidir = Boolean(findReverse(map, t));
+                    const hasNote = Boolean(t.label?.trim());
                     return (
                       <div
                         key={t.id}
@@ -982,6 +1018,39 @@ export function EditorPage() {
                             <span className="truncate">{tName}</span>
                           </div>
                         </div>
+                        {other && (
+                          <label
+                            className={`flex flex-shrink-0 cursor-pointer items-center gap-1 text-[10px] select-none ${
+                              hasNote ? 'text-gray-500' : 'text-gray-300'
+                            }`}
+                            title={
+                              hasNote
+                                ? 'Показать подпись на карте'
+                                : 'Сначала укажите подпись'
+                            }
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <input
+                              type="checkbox"
+                              className="h-3 w-3 rounded"
+                              checked={t.showLabel === true && hasNote}
+                              disabled={!hasNote}
+                              onChange={(e) => {
+                                const checked = e.target.checked;
+                                applyMap(
+                                  patchEdge(map, t.id, {
+                                    showLabel: checked,
+                                  }),
+                                );
+                                if (formEditId === t.id) {
+                                  setFormShowLabel(checked);
+                                }
+                              }}
+                              style={{ accentColor: '#2c2c2c' }}
+                            />
+                            на карте
+                          </label>
+                        )}
                         <button
                           type="button"
                           className="flex-shrink-0 text-gray-300 transition-colors hover:text-red-400"

@@ -15,6 +15,13 @@ import {
   usableBackgroundUrl,
   useLoadedBackgrounds,
 } from '../locationBackground';
+import {
+  captionsForLocation,
+  CHIP_FONT_PX,
+  CHIP_PAD_X,
+  layoutEdgeCaptions,
+  type CaptionPreview,
+} from '../edgeLabels';
 import { cellKind, isSelfLoop } from '../mapModel';
 import { OFFMAP_KINDS } from '../types';
 import {
@@ -51,11 +58,36 @@ interface MapCanvasProps {
   readOnly?: boolean;
   pathLocationIds?: string[];
   pathEdgeIds?: string[];
+  routeFromId?: string | null;
+  routeToId?: string | null;
   onSelect?: (id: string | null) => void;
+  onLocationClick?: (id: string) => void;
   onMove?: (id: string, x: number, y: number) => void;
   onDeleteLocation?: (id: string, event: ReactMouseEvent) => void;
   onAddLocation?: (event: ReactMouseEvent) => void;
   onElbowChange?: (edgeId: string, elbow: { x: number; y: number }) => void;
+  captionPreview?: CaptionPreview | null;
+}
+
+function cardOutline(opts: {
+  selected: boolean;
+  isFrom: boolean;
+  isTo: boolean;
+  onPath: boolean;
+}): string {
+  if (opts.selected) {
+    return '0 0 0 2px #ff9090, 0 0 0 5px rgba(255,144,144,0.3)';
+  }
+  if (opts.isFrom) {
+    return '0 0 0 2px #7dd3fc, 0 0 0 5px rgba(125,211,252,0.35)';
+  }
+  if (opts.isTo) {
+    return '0 0 0 2px #d8b4fe, 0 0 0 5px rgba(216,180,254,0.4)';
+  }
+  if (opts.onPath) {
+    return '0 0 0 2px #fbbf24, 0 0 0 5px rgba(251,191,36,0.35)';
+  }
+  return '0 1px 4px rgba(0,0,0,0.45)';
 }
 
 function clampZoom(z: number): number {
@@ -105,11 +137,15 @@ export function MapCanvas({
   readOnly = false,
   pathLocationIds = [],
   pathEdgeIds = [],
+  routeFromId = null,
+  routeToId = null,
   onSelect,
+  onLocationClick,
   onMove,
   onDeleteLocation,
   onAddLocation,
   onElbowChange,
+  captionPreview = null,
 }: MapCanvasProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const gridRefs = useRef(new Map<string, HTMLDivElement>());
@@ -293,15 +329,15 @@ export function MapCanvas({
   };
 
   const onCardDown = (event: ReactMouseEvent, loc: Location) => {
-    if (event.button === 1) {
-      event.preventDefault();
+    if (event.button === 1 || spaceRef.current) {
+      if (event.button === 1) event.preventDefault();
       event.stopPropagation();
       startPan(event);
       return;
     }
     if (readOnly) {
       event.stopPropagation();
-      startPan(event);
+      movedRef.current = false;
       return;
     }
     if (event.button !== 0) return;
@@ -320,6 +356,10 @@ export function MapCanvas({
   const onCardClick = (event: ReactMouseEvent, loc: Location) => {
     event.stopPropagation();
     if (movedRef.current) return;
+    if (onLocationClick) {
+      onLocationClick(loc.id);
+      return;
+    }
     onSelect?.(loc.id);
   };
 
@@ -445,6 +485,8 @@ export function MapCanvas({
       >
         {map.locations.map((loc) => {
           const isSel = loc.id === selectedId;
+          const isFrom = loc.id === routeFromId;
+          const isTo = loc.id === routeToId;
           const onPath = pathLocationIds.includes(loc.id);
           const colors = tribeColors(loc.tribes);
           const borderPad = colors.length > 0 ? 2 : 0;
@@ -452,6 +494,16 @@ export function MapCanvas({
           const hints = locationHintLabels(loc);
           const bgUrl = usableBackgroundUrl(loc.backgroundUrl);
           const hasBg = Boolean(bgUrl && loadedBgs.has(bgUrl));
+          const captions = layoutEdgeCaptions(
+            captionsForLocation(map, loc.id, captionPreview),
+          );
+          const cardCursor = readOnly
+            ? spaceHeld || panning
+              ? grabCursor
+              : onLocationClick
+                ? 'pointer'
+                : grabCursor
+            : undefined;
 
           return (
             <div
@@ -464,7 +516,7 @@ export function MapCanvas({
               style={{
                 left: loc.x,
                 top: loc.y,
-                cursor: readOnly ? grabCursor : undefined,
+                cursor: cardCursor,
               }}
               onMouseDown={(e) => onCardDown(e, loc)}
               onClick={(e) => onCardClick(e, loc)}
@@ -474,6 +526,11 @@ export function MapCanvas({
                   <span className="flex-1 truncate text-[10px] leading-none text-white">
                     {loc.name}
                   </span>
+                  {isFrom || isTo ? (
+                    <span className="shrink-0 text-[8px] leading-none text-white/50">
+                      {isFrom ? 'откуда' : 'куда'}
+                    </span>
+                  ) : null}
                   {!readOnly && (
                     <button
                       type="button"
@@ -502,14 +559,16 @@ export function MapCanvas({
 
               <div
                 style={{
+                  position: 'relative',
                   padding: borderPad,
                   background: borderBg,
                   borderRadius: 4,
-                  boxShadow: isSel
-                    ? '0 0 0 2px #ff9090, 0 0 0 5px rgba(255,144,144,0.3)'
-                    : onPath
-                      ? '0 0 0 2px #fbbf24, 0 0 0 5px rgba(251,191,36,0.35)'
-                      : '0 1px 4px rgba(0,0,0,0.45)',
+                  boxShadow: cardOutline({
+                    selected: isSel,
+                    isFrom,
+                    isTo,
+                    onPath,
+                  }),
                 }}
               >
                 <div
@@ -537,6 +596,58 @@ export function MapCanvas({
                   );
                   })}
                 </div>
+                {captions.length > 0 && (
+                  <div
+                    className="pointer-events-none absolute overflow-visible"
+                    style={{
+                      left: borderPad,
+                      top: borderPad,
+                      width: MC,
+                      height: MC,
+                    }}
+                  >
+                    <svg
+                      width={MC}
+                      height={MC}
+                      className="absolute overflow-visible"
+                      style={{ overflow: 'visible' }}
+                    >
+                      {captions.map((cap) => (
+                        <line
+                          key={`lead-${cap.id}`}
+                          x1={cap.anchorX}
+                          y1={cap.anchorY}
+                          x2={cap.tipX}
+                          y2={cap.tipY}
+                          stroke="rgba(255,255,255,0.32)"
+                          strokeWidth={1}
+                        />
+                      ))}
+                    </svg>
+                    {captions.map((cap) => (
+                      <div
+                        key={cap.id}
+                        className="absolute truncate text-white"
+                        style={{
+                          left: cap.chipX,
+                          top: cap.chipY,
+                          width: cap.chipW,
+                          height: cap.chipH,
+                          paddingLeft: CHIP_PAD_X,
+                          paddingRight: CHIP_PAD_X,
+                          fontSize: CHIP_FONT_PX,
+                          lineHeight: `${cap.chipH}px`,
+                          borderRadius: 3,
+                          backgroundColor: 'rgba(20,20,20,0.9)',
+                          boxShadow: '0 1px 2px rgba(0,0,0,0.4)',
+                        }}
+                        title={cap.text}
+                      >
+                        {cap.text}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           );
