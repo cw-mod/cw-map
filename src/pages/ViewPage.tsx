@@ -7,7 +7,9 @@ import { HelpButton } from '../components/HelpButton';
 import { LocationPicker } from '../components/LocationPicker';
 import { MapCanvas } from '../components/MapCanvas';
 import { ShareModal } from '../components/ShareModal';
+import { SidePanel, SidePanelHideButton } from '../components/SidePanel';
 import { cloneIntoDraft, loadDraft } from '../draft';
+import { useSidePanel } from '../sidePanel';
 import { shortestPath } from '../graph';
 import { cloneMap, downloadJson, emptyMap, locationLabel } from '../mapModel';
 import {
@@ -38,6 +40,8 @@ export function ViewPage() {
   const [shareError, setShareError] = useState<string | null>(null);
   const [exportError, setExportError] = useState<string | null>(null);
   const [hasDraft, setHasDraft] = useState(() => Boolean(loadDraft()));
+  const { open: panelOpen, setOpen: setPanelOpen, overlay: panelOverlay } =
+    useSidePanel('view');
 
   useEffect(() => {
     const applyHash = () => {
@@ -228,16 +232,29 @@ export function ViewPage() {
         />
       </div>
 
-      <div className="flex w-[360px] flex-shrink-0 flex-col overflow-hidden border-l border-gray-300 bg-[#f2f0ed]">
+      <SidePanel
+        open={panelOpen}
+        overlay={panelOverlay}
+        onOpenChange={setPanelOpen}
+        toggleLabel="Просмотр"
+      >
         <div className="flex-shrink-0 border-b border-gray-200 px-5 pt-5 pb-4">
-          <h2 className="text-sm font-semibold text-gray-800">Просмотр</h2>
-          <p className="mt-1 text-[11px] leading-relaxed text-gray-400">
-            Хеш-ссылки только для просмотра. Редактор открывается после «Копия
-            себе».
-          </p>
+          <div className="flex items-start justify-between gap-2">
+            <div className="min-w-0">
+              <h2 className="text-sm font-semibold text-gray-800">Просмотр</h2>
+              <p className="mt-1 text-[11px] leading-relaxed text-gray-400">
+                Хеш-ссылки только для просмотра. Редактор открывается после
+                «Копия себе».
+              </p>
+            </div>
+            <SidePanelHideButton
+              overlay={panelOverlay}
+              onHide={() => setPanelOpen(false)}
+            />
+          </div>
         </div>
 
-        <div className="flex-1 overflow-y-auto px-5 py-4">
+        <div className="min-h-0 flex-1 overflow-y-auto px-5 py-4">
           {map.comment ? (
             <p className="mb-4 rounded-lg bg-white px-3 py-2 text-xs leading-relaxed text-gray-600">
               {map.comment}
@@ -330,7 +347,7 @@ export function ViewPage() {
             </button>
           </div>
         </div>
-      </div>
+      </SidePanel>
 
       {shareUrl && (
         <ShareModal

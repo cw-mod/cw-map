@@ -296,6 +296,11 @@ export function MapCanvas({
     oy: number;
   } | null>(null);
   const elbowDrag = useRef<{ edgeId: string } | null>(null);
+  const pinchRef = useRef<{
+    dist: number;
+    z: number;
+  } | null>(null);
+  const touchGuardRef = useRef(0);
 
   const [zoomPct, setZoomPct] = useState(100);
   const [showDetail, setShowDetail] = useState(true);
@@ -393,6 +398,127 @@ export function MapCanvas({
   }, [applyCamera, zoomAt]);
 
   useEffect(() => {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+
+    const markTouch = () => {
+      touchGuardRef.current = Date.now();
+    };
+    const touchPoint = (touches: TouchList, index: number) => touches.item(index);
+    const distance = (a: Touch, b: Touch) =>
+      Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+
+    const ignoreUi = (event: TouchEvent) => {
+      const target = event.target;
+      return target instanceof Element && Boolean(target.closest('[data-cw-map-ui]'));
+    };
+
+    const beginPan = (touch: Touch) => {
+      movedRef.current = false;
+      panDrag.current = {
+        mx: touch.clientX,
+        my: touch.clientY,
+        ox: cameraRef.current.x,
+        oy: cameraRef.current.y,
+      };
+      cardDrag.current = null;
+      setPanning(true);
+    };
+
+    const onTouchStart = (event: TouchEvent) => {
+      if (ignoreUi(event)) return;
+      markTouch();
+      if (event.touches.length >= 2) {
+        event.preventDefault();
+        const a = touchPoint(event.touches, 0);
+        const b = touchPoint(event.touches, 1);
+        if (!a || !b) return;
+        pinchRef.current = {
+          dist: Math.max(1, distance(a, b)),
+          z: cameraRef.current.z,
+        };
+        panDrag.current = null;
+        cardDrag.current = null;
+        setPanning(false);
+        movedRef.current = true;
+        return;
+      }
+      if (event.touches.length === 1 && !pinchRef.current) {
+        const touch = touchPoint(event.touches, 0);
+        if (touch) beginPan(touch);
+      }
+    };
+
+    const onTouchMove = (event: TouchEvent) => {
+      if (ignoreUi(event)) return;
+      markTouch();
+      if (event.touches.length >= 2) {
+        event.preventDefault();
+        const a = touchPoint(event.touches, 0);
+        const b = touchPoint(event.touches, 1);
+        if (!a || !b) return;
+        if (!pinchRef.current) {
+          pinchRef.current = {
+            dist: Math.max(1, distance(a, b)),
+            z: cameraRef.current.z,
+          };
+          panDrag.current = null;
+          setPanning(false);
+        }
+        const pinch = pinchRef.current;
+        const dist = Math.max(1, distance(a, b));
+        const midX = (a.clientX + b.clientX) / 2;
+        const midY = (a.clientY + b.clientY) / 2;
+        zoomAt(midX, midY, pinch.z * (dist / pinch.dist));
+        movedRef.current = true;
+        return;
+      }
+      const pan = panDrag.current;
+      if (!pan || event.touches.length !== 1) return;
+      event.preventDefault();
+      const touch = touchPoint(event.touches, 0);
+      if (!touch) return;
+      const dx = touch.clientX - pan.mx;
+      const dy = touch.clientY - pan.my;
+      if (Math.hypot(dx, dy) > PAN_CLICK_SLOP) movedRef.current = true;
+      applyCamera({ x: pan.ox + dx, y: pan.oy + dy, z: cameraRef.current.z });
+    };
+
+    const onTouchEnd = (event: TouchEvent) => {
+      markTouch();
+      if (event.touches.length < 2) pinchRef.current = null;
+      if (event.touches.length === 1) {
+        const touch = touchPoint(event.touches, 0);
+        if (touch) {
+          panDrag.current = {
+            mx: touch.clientX,
+            my: touch.clientY,
+            ox: cameraRef.current.x,
+            oy: cameraRef.current.y,
+          };
+          setPanning(true);
+        }
+        return;
+      }
+      if (event.touches.length === 0) {
+        panDrag.current = null;
+        setPanning(false);
+      }
+    };
+
+    viewport.addEventListener('touchstart', onTouchStart, { passive: false });
+    viewport.addEventListener('touchmove', onTouchMove, { passive: false });
+    viewport.addEventListener('touchend', onTouchEnd);
+    viewport.addEventListener('touchcancel', onTouchEnd);
+    return () => {
+      viewport.removeEventListener('touchstart', onTouchStart);
+      viewport.removeEventListener('touchmove', onTouchMove);
+      viewport.removeEventListener('touchend', onTouchEnd);
+      viewport.removeEventListener('touchcancel', onTouchEnd);
+    };
+  }, [applyCamera, zoomAt]);
+
+  useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.code !== 'Space' || event.repeat) return;
       if (isTypingTarget(event.target)) return;
@@ -462,6 +588,8 @@ export function MapCanvas({
     };
   }, [applyCamera, onMove, onElbowChange]);
 
+  const fromTouch = () => Date.now() - touchGuardRef.current < 700;
+
   const startPan = (event: ReactMouseEvent | MouseEvent) => {
     movedRef.current = false;
     panDrag.current = {
@@ -474,6 +602,7 @@ export function MapCanvas({
   };
 
   const onViewportDown = (event: ReactMouseEvent) => {
+    if (fromTouch()) return;
     if (event.button === 1 || spaceRef.current || event.button === 0) {
       if (event.button === 1) event.preventDefault();
       startPan(event);
@@ -482,6 +611,10 @@ export function MapCanvas({
 
   const onCardDown = useCallback(
     (event: ReactMouseEvent, loc: Location) => {
+      if (Date.now() - touchGuardRef.current < 700) {
+        event.stopPropagation();
+        return;
+      }
       if (event.button === 1 || spaceRef.current) {
         if (event.button === 1) event.preventDefault();
         event.stopPropagation();
@@ -587,7 +720,11 @@ export function MapCanvas({
     <div
       ref={viewportRef}
       className="relative flex-1 overflow-hidden"
-      style={{ backgroundColor: '#3e3e3e', cursor: grabCursor }}
+      style={{
+        backgroundColor: '#3e3e3e',
+        cursor: grabCursor,
+        touchAction: 'none',
+      }}
       onMouseEnter={() => {
         hoverRef.current = true;
       }}
@@ -745,9 +882,11 @@ export function MapCanvas({
       </div>
 
       <div
+        data-cw-map-ui
         className="absolute right-5 bottom-5 flex flex-col items-end gap-2"
         onMouseDown={(e) => e.stopPropagation()}
         onClick={(e) => e.stopPropagation()}
+        onTouchStart={(e) => e.stopPropagation()}
       >
         <div
           className="flex items-center gap-0.5 rounded-lg p-1"

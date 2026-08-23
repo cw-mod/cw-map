@@ -26,7 +26,9 @@ import { HelpButton } from '../components/HelpButton';
 import { LocationPicker } from '../components/LocationPicker';
 import { MapCanvas } from '../components/MapCanvas';
 import { ShareModal } from '../components/ShareModal';
+import { SidePanel, SidePanelHideButton } from '../components/SidePanel';
 import { loadDraft, saveDraft } from '../draft';
+import { useSidePanel } from '../sidePanel';
 import {
   addLocation,
   addLocationNear,
@@ -132,6 +134,33 @@ export function EditorPage() {
   const [shareError, setShareError] = useState<string | null>(null);
   const [savedFlash, setSavedFlash] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
+  const { open: panelOpen, setOpen: setPanelOpen, overlay: panelOverlay } =
+    useSidePanel('edit');
+  const reopenPanelRef = useRef(false);
+
+  const finishMapPick = useCallback(() => {
+    setPickingOnMap(false);
+    setPickHint(null);
+    if (reopenPanelRef.current) {
+      reopenPanelRef.current = false;
+      setPanelOpen(true);
+    }
+  }, [setPanelOpen]);
+
+  const toggleMapPick = () => {
+    setPickingOnMap((active) => {
+      const next = !active;
+      if (next && panelOverlay && panelOpen) {
+        reopenPanelRef.current = true;
+        setPanelOpen(false);
+      } else if (!next && reopenPanelRef.current) {
+        reopenPanelRef.current = false;
+        setPanelOpen(true);
+      }
+      return next;
+    });
+    setPickHint(null);
+  };
 
   const histStack = useRef<{ locations: Location[]; edges: Edge[] }[]>([]);
   const [histIdx, setHistIdx] = useState(-1);
@@ -195,6 +224,10 @@ export function EditorPage() {
     setFormEditId(null);
     setPickingOnMap(false);
     setPickHint(null);
+    if (reopenPanelRef.current) {
+      reopenPanelRef.current = false;
+      setPanelOpen(true);
+    }
     // Intentionally only when the selected card changes.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedId]);
@@ -213,9 +246,8 @@ export function EditorPage() {
     skipHist.current = false;
     setFormCell(null);
     setFormEditId(null);
-    setPickingOnMap(false);
-    setPickHint(null);
-  }, [histIdx]);
+    finishMapPick();
+  }, [histIdx, finishMapPick]);
 
   const handleRedo = useCallback(() => {
     if (histIdx >= histStack.current.length - 1) return;
@@ -231,9 +263,8 @@ export function EditorPage() {
     skipHist.current = false;
     setFormCell(null);
     setFormEditId(null);
-    setPickingOnMap(false);
-    setPickHint(null);
-  }, [histIdx]);
+    finishMapPick();
+  }, [histIdx, finishMapPick]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -246,13 +277,12 @@ export function EditorPage() {
         handleRedo();
       } else if (e.key === 'Escape' && pickingOnMap) {
         e.preventDefault();
-        setPickingOnMap(false);
-        setPickHint(null);
+        finishMapPick();
       }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [handleUndo, handleRedo, pickingOnMap]);
+  }, [handleUndo, handleRedo, pickingOnMap, finishMapPick]);
 
   const handleSave = () => {
     if (!selectedId) return;
@@ -319,8 +349,7 @@ export function EditorPage() {
 
   const onEditorCellClick = (cell: Cell) => {
     if (!selectedId) return;
-    setPickingOnMap(false);
-    setPickHint(null);
+    finishMapPick();
     const existing = edgeAtCell(map, selectedId, cell);
     if (existing) {
       setFormCell(cell);
@@ -368,8 +397,7 @@ export function EditorPage() {
       applyMap(upsertOutgoingEdge(map, edge, false));
       setFormCell(null);
       setFormEditId(null);
-      setPickingOnMap(false);
-      setPickHint(null);
+      finishMapPick();
       return;
     }
 
@@ -407,8 +435,7 @@ export function EditorPage() {
     );
     setFormCell(null);
     setFormEditId(null);
-    setPickingOnMap(false);
-    setPickHint(null);
+    finishMapPick();
   };
 
   const onDeleteFromForm = () => {
@@ -416,8 +443,7 @@ export function EditorPage() {
     applyMap(removeEdge(map, formEditId));
     setFormCell(null);
     setFormEditId(null);
-    setPickingOnMap(false);
-    setPickHint(null);
+    finishMapPick();
   };
 
   const onDeleteTransition = (id: string, e: MouseEvent) => {
@@ -426,8 +452,7 @@ export function EditorPage() {
     if (formEditId === id) {
       setFormCell(null);
       setFormEditId(null);
-      setPickingOnMap(false);
-      setPickHint(null);
+      finishMapPick();
     }
   };
 
@@ -588,14 +613,16 @@ export function EditorPage() {
             }
             setFormTarget(id);
             setFormBidir(false);
-            setPickingOnMap(false);
-            setPickHint(null);
+            finishMapPick();
           }}
         />
       </div>
 
-      <div
-        className="flex h-full max-h-screen min-h-0 w-[360px] flex-shrink-0 flex-col overflow-y-auto border-l border-gray-300 bg-[#f2f0ed]"
+      <SidePanel
+        open={panelOpen}
+        overlay={panelOverlay}
+        onOpenChange={setPanelOpen}
+        toggleLabel="Редактор"
       >
         {selLoc ? (
           <>
@@ -603,14 +630,20 @@ export function EditorPage() {
               <h2 className="text-sm font-semibold text-gray-800">
                 Редактирование локации
               </h2>
-              <button
-                type="button"
-                onClick={handleSave}
-                className="rounded-lg px-3.5 py-2 text-xs text-white transition-opacity hover:opacity-85"
-                style={{ backgroundColor: savedFlash ? '#16a34a' : '#2c2c2c' }}
-              >
-                {savedFlash ? 'Сохранено' : 'Сохранить'}
-              </button>
+              <div className="flex items-center gap-1">
+                <button
+                  type="button"
+                  onClick={handleSave}
+                  className="rounded-lg px-3.5 py-2 text-xs text-white transition-opacity hover:opacity-85"
+                  style={{ backgroundColor: savedFlash ? '#16a34a' : '#2c2c2c' }}
+                >
+                  {savedFlash ? 'Сохранено' : 'Сохранить'}
+                </button>
+                <SidePanelHideButton
+                  overlay={panelOverlay}
+                  onHide={() => setPanelOpen(false)}
+                />
+              </div>
             </div>
 
             <div className="flex-shrink-0 border-b border-gray-200 px-5 py-4">
@@ -885,8 +918,7 @@ export function EditorPage() {
                     onClick={() => {
                       setFormCell(null);
                       setFormEditId(null);
-                      setPickingOnMap(false);
-                      setPickHint(null);
+                      finishMapPick();
                     }}
                     className="text-gray-400 hover:text-gray-600"
                   >
@@ -901,8 +933,7 @@ export function EditorPage() {
                     <LocationPicker
                       value={formTarget}
                       onChange={(value) => {
-                        setPickingOnMap(false);
-                        setPickHint(null);
+                        finishMapPick();
                         setFormTarget(value);
                         setFormBidir(false);
                         if (value === NEW_LOCATION_TARGET) {
@@ -929,10 +960,7 @@ export function EditorPage() {
                       pinnedAction={{
                         label: 'Выбрать на карте',
                         active: pickingOnMap,
-                        onClick: () => {
-                          setPickingOnMap((active) => !active);
-                          setPickHint(null);
-                        },
+                        onClick: toggleMapPick,
                       }}
                     />
                     {pickingOnMap && (
@@ -1118,6 +1146,13 @@ export function EditorPage() {
           </>
         ) : (
           <div>
+            <div className="flex items-center justify-between px-5 pt-5">
+              <h2 className="text-sm font-semibold text-gray-800">Редактор</h2>
+              <SidePanelHideButton
+                overlay={panelOverlay}
+                onHide={() => setPanelOpen(false)}
+              />
+            </div>
             <div className="flex flex-col gap-5 p-5">
               <div className="flex flex-col items-center gap-4 pt-4">
                 <div
@@ -1252,7 +1287,7 @@ export function EditorPage() {
             </div>
           </div>
         )}
-      </div>
+      </SidePanel>
 
       {shareUrl && (
         <ShareModal
