@@ -1,6 +1,6 @@
 # Карта CatWar (`cw-map`)
 
-Статический редактор и просмотрщик карты локаций CatWar. Это отдельный инструмент, не ходилка и не охота. Вопросы, предложения и помощь: [профиль CatWar](https://catwar.su/cat965285) и [Telegram](https://t.me/polexka).
+Статический просмотрщик и редактор карт локаций CatWar. Вопросы, предложения и помощь: [профиль CatWar](https://catwar.su/cat965285) и [Telegram](https://t.me/polexka).
 
 Сайт: [https://cw-mod.github.io/cw-map/](https://cw-mod.github.io/cw-map/). Репозиторий: [cw-mod/cw-map](https://github.com/cw-mod/cw-map).
 
