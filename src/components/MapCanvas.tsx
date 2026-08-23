@@ -67,6 +67,9 @@ interface MapCanvasProps {
   onAddLocation?: (event: ReactMouseEvent) => void;
   onElbowChange?: (edgeId: string, elbow: { x: number; y: number }) => void;
   captionPreview?: CaptionPreview | null;
+  pickMode?: boolean;
+  onPickLocation?: (id: string) => void;
+  pickHint?: string | null;
 }
 
 function cardOutline(opts: {
@@ -74,7 +77,11 @@ function cardOutline(opts: {
   isFrom: boolean;
   isTo: boolean;
   onPath: boolean;
+  pickHover?: boolean;
 }): string {
+  if (opts.pickHover) {
+    return '0 0 0 2px #fde68a, 0 0 0 5px rgba(253,230,138,0.5)';
+  }
   if (opts.selected) {
     return '0 0 0 2px #ff9090, 0 0 0 5px rgba(255,144,144,0.3)';
   }
@@ -146,6 +153,9 @@ export function MapCanvas({
   onAddLocation,
   onElbowChange,
   captionPreview = null,
+  pickMode = false,
+  onPickLocation,
+  pickHint = null,
 }: MapCanvasProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const gridRefs = useRef(new Map<string, HTMLDivElement>());
@@ -173,6 +183,7 @@ export function MapCanvas({
   const [panning, setPanning] = useState(false);
   const [layoutTick, setLayoutTick] = useState(0);
   const [hoveredLineId, setHoveredLineId] = useState<string | null>(null);
+  const [hoveredPickId, setHoveredPickId] = useState<string | null>(null);
   const [draggingElbowId, setDraggingElbowId] = useState<string | null>(null);
   const loadedBgs = useLoadedBackgrounds(
     map.locations.map((loc) => loc.backgroundUrl),
@@ -335,6 +346,11 @@ export function MapCanvas({
       startPan(event);
       return;
     }
+    if (pickMode) {
+      event.stopPropagation();
+      movedRef.current = false;
+      return;
+    }
     if (readOnly) {
       event.stopPropagation();
       movedRef.current = false;
@@ -356,6 +372,10 @@ export function MapCanvas({
   const onCardClick = (event: ReactMouseEvent, loc: Location) => {
     event.stopPropagation();
     if (movedRef.current) return;
+    if (pickMode) {
+      onPickLocation?.(loc.id);
+      return;
+    }
     if (onLocationClick) {
       onLocationClick(loc.id);
       return;
@@ -365,6 +385,7 @@ export function MapCanvas({
 
   const onViewportClick = () => {
     if (movedRef.current) return;
+    if (pickMode) return;
     onSelect?.(null);
   };
 
@@ -497,19 +518,21 @@ export function MapCanvas({
           const captions = layoutEdgeCaptions(
             captionsForLocation(map, loc.id, captionPreview),
           );
-          const cardCursor = readOnly
-            ? spaceHeld || panning
-              ? grabCursor
-              : onLocationClick
-                ? 'pointer'
-                : grabCursor
-            : undefined;
+          const cardCursor = pickMode
+            ? 'pointer'
+            : readOnly
+              ? spaceHeld || panning
+                ? grabCursor
+                : onLocationClick
+                  ? 'pointer'
+                  : grabCursor
+              : undefined;
 
           return (
             <div
               key={loc.id}
               className={`absolute select-none group ${
-                readOnly
+                readOnly || pickMode
                   ? ''
                   : 'cursor-grab active:cursor-grabbing'
               }`}
@@ -520,6 +543,12 @@ export function MapCanvas({
               }}
               onMouseDown={(e) => onCardDown(e, loc)}
               onClick={(e) => onCardClick(e, loc)}
+              onMouseEnter={() => {
+                if (pickMode) setHoveredPickId(loc.id);
+              }}
+              onMouseLeave={() => {
+                setHoveredPickId((id) => (id === loc.id ? null : id));
+              }}
             >
               <div className="mb-1" style={{ width: MC + borderPad * 2 }}>
                 <div className="flex items-center gap-1">
@@ -531,7 +560,7 @@ export function MapCanvas({
                       {isFrom ? 'откуда' : 'куда'}
                     </span>
                   ) : null}
-                  {!readOnly && (
+                  {!readOnly && !pickMode && (
                     <button
                       type="button"
                       className="flex-shrink-0 text-white/40 opacity-0 transition-opacity hover:text-red-400 group-hover:opacity-100"
@@ -568,6 +597,7 @@ export function MapCanvas({
                     isFrom,
                     isTo,
                     onPath,
+                    pickHover: pickMode && hoveredPickId === loc.id,
                   }),
                 }}
               >
@@ -679,8 +709,8 @@ export function MapCanvas({
                 stroke="transparent"
                 strokeWidth={16}
                 fill="none"
-                className="pointer-events-auto"
-                style={{ pointerEvents: 'stroke' }}
+                className={pickMode ? undefined : 'pointer-events-auto'}
+                style={{ pointerEvents: pickMode ? 'none' : 'stroke' }}
               />
               <path
                 d={ln.d}
@@ -696,8 +726,13 @@ export function MapCanvas({
                   fill="#f5f5f5"
                   stroke="#2c2c2c"
                   strokeWidth={1.5}
-                  className="pointer-events-auto cursor-grab"
+                  className={
+                    pickMode
+                      ? 'pointer-events-none'
+                      : 'pointer-events-auto cursor-grab'
+                  }
                   onMouseDown={(event) => {
+                    if (pickMode) return;
                     event.stopPropagation();
                     event.preventDefault();
                     movedRef.current = false;
@@ -711,6 +746,15 @@ export function MapCanvas({
           );
         })}
       </svg>
+
+      {pickMode ? (
+        <div
+          className="pointer-events-none absolute top-4 left-1/2 z-10 -translate-x-1/2 rounded-lg px-3 py-1.5 text-xs text-white shadow-lg"
+          style={{ backgroundColor: 'rgba(0,0,0,0.65)' }}
+        >
+          {pickHint ?? 'Кликните локацию на карте'}
+        </div>
+      ) : null}
 
       <div className="pointer-events-none absolute bottom-5 left-5 flex flex-col gap-1.5">
         <div className="flex items-center gap-2">

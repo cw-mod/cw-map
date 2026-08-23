@@ -12,6 +12,11 @@ interface LocationPickerProps {
   pinnedTop?: PickerItem[];
   pinnedBottom?: PickerItem[];
   pinnedBottomTitle?: string;
+  pinnedAction?: {
+    label: string;
+    active?: boolean;
+    onClick: () => void;
+  };
   searchPlaceholder?: string;
   noneLabel?: string;
 }
@@ -28,6 +33,7 @@ export function LocationPicker({
   pinnedTop = [],
   pinnedBottom = [],
   pinnedBottomTitle,
+  pinnedAction,
   searchPlaceholder = 'Найти локацию…',
   noneLabel,
 }: LocationPickerProps) {
@@ -74,6 +80,20 @@ export function LocationPicker({
         onChange={(e) => setQuery(e.target.value)}
         aria-label={searchPlaceholder}
       />
+      {pinnedAction && (
+        <button
+          type="button"
+          aria-pressed={pinnedAction.active === true}
+          onClick={pinnedAction.onClick}
+          className={`mt-1 w-full rounded-lg px-2.5 py-1.5 text-xs transition-colors ${
+            pinnedAction.active
+              ? 'bg-gray-800 text-white'
+              : 'border border-gray-200 bg-white text-gray-700 hover:bg-gray-100'
+          }`}
+        >
+          {pinnedAction.label}
+        </button>
+      )}
       <div className="mt-1 max-h-44 overflow-y-auto rounded-lg border border-gray-200 bg-white">
         {noneLabel && (
           <button type="button" className={rowClass('')} onClick={() => pick('')}>

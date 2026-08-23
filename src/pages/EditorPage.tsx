@@ -126,6 +126,8 @@ export function EditorPage() {
   const [formLabel, setFormLabel] = useState('');
   const [formShowLabel, setFormShowLabel] = useState(false);
   const [formBidir, setFormBidir] = useState(false);
+  const [pickingOnMap, setPickingOnMap] = useState(false);
+  const [pickHint, setPickHint] = useState<string | null>(null);
   const [shareUrl, setShareUrl] = useState<string | null>(null);
   const [shareError, setShareError] = useState<string | null>(null);
   const [savedFlash, setSavedFlash] = useState(false);
@@ -191,6 +193,8 @@ export function EditorPage() {
     skipHist.current = false;
     setFormCell(null);
     setFormEditId(null);
+    setPickingOnMap(false);
+    setPickHint(null);
     // Intentionally only when the selected card changes.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedId]);
@@ -209,6 +213,8 @@ export function EditorPage() {
     skipHist.current = false;
     setFormCell(null);
     setFormEditId(null);
+    setPickingOnMap(false);
+    setPickHint(null);
   }, [histIdx]);
 
   const handleRedo = useCallback(() => {
@@ -225,6 +231,8 @@ export function EditorPage() {
     skipHist.current = false;
     setFormCell(null);
     setFormEditId(null);
+    setPickingOnMap(false);
+    setPickHint(null);
   }, [histIdx]);
 
   useEffect(() => {
@@ -236,11 +244,15 @@ export function EditorPage() {
       } else if (mod && (e.key === 'y' || (e.key === 'z' && e.shiftKey))) {
         e.preventDefault();
         handleRedo();
+      } else if (e.key === 'Escape' && pickingOnMap) {
+        e.preventDefault();
+        setPickingOnMap(false);
+        setPickHint(null);
       }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [handleUndo, handleRedo]);
+  }, [handleUndo, handleRedo, pickingOnMap]);
 
   const handleSave = () => {
     if (!selectedId) return;
@@ -307,6 +319,8 @@ export function EditorPage() {
 
   const onEditorCellClick = (cell: Cell) => {
     if (!selectedId) return;
+    setPickingOnMap(false);
+    setPickHint(null);
     const existing = edgeAtCell(map, selectedId, cell);
     if (existing) {
       setFormCell(cell);
@@ -354,6 +368,8 @@ export function EditorPage() {
       applyMap(upsertOutgoingEdge(map, edge, false));
       setFormCell(null);
       setFormEditId(null);
+      setPickingOnMap(false);
+      setPickHint(null);
       return;
     }
 
@@ -391,6 +407,8 @@ export function EditorPage() {
     );
     setFormCell(null);
     setFormEditId(null);
+    setPickingOnMap(false);
+    setPickHint(null);
   };
 
   const onDeleteFromForm = () => {
@@ -398,6 +416,8 @@ export function EditorPage() {
     applyMap(removeEdge(map, formEditId));
     setFormCell(null);
     setFormEditId(null);
+    setPickingOnMap(false);
+    setPickHint(null);
   };
 
   const onDeleteTransition = (id: string, e: MouseEvent) => {
@@ -406,6 +426,8 @@ export function EditorPage() {
     if (formEditId === id) {
       setFormCell(null);
       setFormEditId(null);
+      setPickingOnMap(false);
+      setPickHint(null);
     }
   };
 
@@ -557,6 +579,18 @@ export function EditorPage() {
                 }
               : null
           }
+          pickMode={pickingOnMap}
+          pickHint={pickHint}
+          onPickLocation={(id) => {
+            if (id === selectedId) {
+              setPickHint('выберите другую локацию');
+              return;
+            }
+            setFormTarget(id);
+            setFormBidir(false);
+            setPickingOnMap(false);
+            setPickHint(null);
+          }}
         />
       </div>
 
@@ -851,6 +885,8 @@ export function EditorPage() {
                     onClick={() => {
                       setFormCell(null);
                       setFormEditId(null);
+                      setPickingOnMap(false);
+                      setPickHint(null);
                     }}
                     className="text-gray-400 hover:text-gray-600"
                   >
@@ -865,6 +901,8 @@ export function EditorPage() {
                     <LocationPicker
                       value={formTarget}
                       onChange={(value) => {
+                        setPickingOnMap(false);
+                        setPickHint(null);
                         setFormTarget(value);
                         setFormBidir(false);
                         if (value === NEW_LOCATION_TARGET) {
@@ -888,7 +926,20 @@ export function EditorPage() {
                         })),
                       ]}
                       pinnedBottomTitle="Другое"
+                      pinnedAction={{
+                        label: 'Выбрать на карте',
+                        active: pickingOnMap,
+                        onClick: () => {
+                          setPickingOnMap((active) => !active);
+                          setPickHint(null);
+                        },
+                      }}
                     />
+                    {pickingOnMap && (
+                      <p className="mt-1 text-[11px] text-gray-500">
+                        {pickHint ?? 'Кликните локацию на карте'}
+                      </p>
+                    )}
                   </div>
                   {formTarget === NEW_LOCATION_TARGET && (
                     <div>
