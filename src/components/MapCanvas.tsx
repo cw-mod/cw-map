@@ -1,28 +1,38 @@
 import {
+  memo,
   useCallback,
   useEffect,
   useLayoutEffect,
+  useMemo,
   useRef,
   useState,
   type CSSProperties,
   type MouseEvent as ReactMouseEvent,
 } from 'react';
 import { Minus, Plus, X } from 'lucide-react';
-import { cellFill, EDGE_KIND_UI, isOffmapEdge } from '../edgeKinds';
 import {
-  emptyCellFill,
-  locationCardBackground,
-  usableBackgroundUrl,
-  useLoadedBackgrounds,
-} from '../locationBackground';
+  CARD_GRID,
+  cellWorldCenter,
+  DIMMED_GRID_GAPS,
+  EMPTY_GRID_GAPS,
+  locationFrameBox,
+} from '../cardLayout';
+import { cellFill, EDGE_KIND_UI, isOffmapEdge } from '../edgeKinds';
 import {
   captionsForLocation,
   CHIP_FONT_PX,
   CHIP_PAD_X,
+  cellBox,
   layoutEdgeCaptions,
+  type CaptionLayout,
   type CaptionPreview,
 } from '../edgeLabels';
-import { cellKind, isSelfLoop } from '../mapModel';
+import {
+  locationCardBackground,
+  usableBackgroundUrl,
+  useLoadedBackgrounds,
+} from '../locationBackground';
+import { indexCellsByLocation, isSelfLoop, type MarkedCell } from '../mapModel';
 import { OFFMAP_KINDS } from '../types';
 import {
   attachOnSide,
@@ -32,24 +42,35 @@ import {
   pointsToPath,
   sideOfApproach,
   viewportToWorld,
-  worldToViewport,
   type Pt,
 } from '../ortho';
-import type { Cell, CwMap, Location } from '../types';
-import { GRID_COLS, GRID_ROWS } from '../types';
+import type { CwMap, Edge, Location } from '../types';
 import { locationHintLabels } from '../locationMarks';
 import { tribeBorderBackground, tribeColors } from '../tribes';
 
-const MC = 120;
-const MIN_ZOOM = 0.25;
+const MC = CARD_GRID;
+const MIN_ZOOM = 0.1;
 const MAX_ZOOM = 3;
 const ZOOM_BUTTON_FACTOR = 1.2;
 const PAN_CLICK_SLOP = 4;
+/** Below this zoom, skip per-cell DOM and captions. */
+const DETAIL_ZOOM = 0.48;
+const FIT_PAD = 48;
 
 interface Camera {
   x: number;
   y: number;
   z: number;
+}
+
+interface WorldLine {
+  edgeId: string;
+  d: string;
+  bidir: boolean;
+  onPath: boolean;
+  handle: Pt | null;
+  fromId: string;
+  toId?: string;
 }
 
 interface MapCanvasProps {
@@ -101,41 +122,137 @@ function clampZoom(z: number): number {
   return Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, z));
 }
 
-function cellCenter(
-  grid: HTMLDivElement,
-  viewport: HTMLDivElement,
-  cell: Cell,
-): { x: number; y: number } {
-  const gridRect = grid.getBoundingClientRect();
-  const viewRect = viewport.getBoundingClientRect();
-  const cellW = gridRect.width / GRID_COLS;
-  const cellH = gridRect.height / GRID_ROWS;
-  return {
-    x: gridRect.left - viewRect.left + cell.x * cellW + cellW / 2,
-    y: gridRect.top - viewRect.top + cell.y * cellH + cellH / 2,
-  };
-}
-
-/** Framed grid (parent = colored border), viewport-relative. */
-function cardScreenBox(
-  grid: HTMLDivElement,
-  viewport: HTMLDivElement,
-): { left: number; top: number; right: number; bottom: number } {
-  const el = grid.parentElement ?? grid;
-  const r = el.getBoundingClientRect();
-  const v = viewport.getBoundingClientRect();
-  return {
-    left: r.left - v.left,
-    top: r.top - v.top,
-    right: r.right - v.left,
-    bottom: r.bottom - v.top,
-  };
+function cameraTransform(cam: Camera): string {
+  return `translate(${cam.x}px, ${cam.y}px) scale(${cam.z})`;
 }
 
 function isTypingTarget(target: EventTarget | null): boolean {
   if (!(target instanceof HTMLElement)) return false;
   const tag = target.tagName;
   return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || target.isContentEditable;
+}
+
+function reverseKey(fromId: string, toId: string): string {
+  return `${fromId}\0${toId}`;
+}
+
+function computeWorldLines(
+  locations: Location[],
+  edges: Edge[],
+  pathEdgeIds: Set<string>,
+): WorldLine[] {
+  const locById = new Map(locations.map((loc) => [loc.id, loc]));
+  const reverseOf = new Map<string, Edge>();
+  for (const edge of edges) {
+    if (isOffmapEdge(edge) || isSelfLoop(edge) || !edge.toLocationId) continue;
+    reverseOf.set(reverseKey(edge.fromLocationId, edge.toLocationId), edge);
+  }
+
+  const result: WorldLine[] = [];
+  const seen = new Set<string>();
+
+  for (const edge of edges) {
+    if (isOffmapEdge(edge) || isSelfLoop(edge) || !edge.toLocationId) continue;
+    const fromLoc = locById.get(edge.fromLocationId);
+    const toLoc = locById.get(edge.toLocationId);
+    if (!fromLoc || !toLoc) continue;
+
+    const pair = [edge.fromLocationId, edge.toLocationId].sort().join('~');
+    if (seen.has(pair)) continue;
+    seen.add(pair);
+
+    const reverse = reverseOf.get(
+      reverseKey(edge.toLocationId, edge.fromLocationId),
+    );
+    const fromW = cellWorldCenter(fromLoc, edge.fromCell);
+    const via = edge.elbow ?? reverse?.elbow;
+    const ownerId = edge.elbow
+      ? edge.id
+      : reverse?.elbow
+        ? reverse.id
+        : edge.id;
+
+    let toW: Pt;
+    let mode: 'hv' | 'vh' | undefined;
+    if (reverse) {
+      toW = cellWorldCenter(toLoc, reverse.fromCell);
+    } else {
+      const box = locationFrameBox(toLoc);
+      const side = sideOfApproach(fromW, box);
+      toW = attachOnSide(box, side, fromW, via);
+      mode = modeForSide(side);
+    }
+
+    const pts = orthogonalPoints(fromW, toW, via, mode);
+    result.push({
+      edgeId: ownerId,
+      d: pointsToPath(pts),
+      bidir: Boolean(reverse),
+      onPath:
+        pathEdgeIds.has(edge.id) ||
+        (reverse ? pathEdgeIds.has(reverse.id) : false),
+      handle: corridorHandle(pts),
+      fromId: edge.fromLocationId,
+      toId: edge.toLocationId,
+    });
+  }
+  return result;
+}
+
+function worldSvgBounds(
+  locations: Location[],
+  edges: Edge[],
+): { minX: number; minY: number; width: number; height: number } {
+  let minX = 0;
+  let minY = 0;
+  let maxX = 400;
+  let maxY = 400;
+  for (const loc of locations) {
+    const box = locationFrameBox(loc);
+    minX = Math.min(minX, loc.x - 120);
+    minY = Math.min(minY, loc.y - 24);
+    maxX = Math.max(maxX, box.right + 120);
+    maxY = Math.max(maxY, box.bottom + 24);
+  }
+  for (const edge of edges) {
+    if (!edge.elbow) continue;
+    minX = Math.min(minX, edge.elbow.x - 24);
+    minY = Math.min(minY, edge.elbow.y - 24);
+    maxX = Math.max(maxX, edge.elbow.x + 24);
+    maxY = Math.max(maxY, edge.elbow.y + 24);
+  }
+  return { minX, minY, width: maxX - minX, height: maxY - minY };
+}
+
+function fitCameraToMap(locations: Location[], viewport: HTMLElement): Camera {
+  if (locations.length === 0) return { x: 0, y: 0, z: 1 };
+  let minX = Infinity;
+  let minY = Infinity;
+  let maxX = -Infinity;
+  let maxY = -Infinity;
+  for (const loc of locations) {
+    const box = locationFrameBox(loc);
+    minX = Math.min(minX, loc.x);
+    minY = Math.min(minY, loc.y);
+    maxX = Math.max(maxX, box.right + 96);
+    maxY = Math.max(maxY, box.bottom);
+  }
+  const vw = Math.max(1, viewport.clientWidth);
+  const vh = Math.max(1, viewport.clientHeight);
+  const w = Math.max(1, maxX - minX);
+  const h = Math.max(1, maxY - minY);
+  const z = clampZoom(
+    Math.min((vw - FIT_PAD * 2) / w, (vh - FIT_PAD * 2) / h, 1),
+  );
+  return {
+    x: (vw - w * z) / 2 - minX * z,
+    y: (vh - h * z) / 2 - minY * z,
+    z,
+  };
+}
+
+function setToKey(ids: string[]): string {
+  return ids.join('\0');
 }
 
 export function MapCanvas({
@@ -158,11 +275,13 @@ export function MapCanvas({
   pickHint = null,
 }: MapCanvasProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
-  const gridRefs = useRef(new Map<string, HTMLDivElement>());
+  const worldRef = useRef<HTMLDivElement>(null);
   const cameraRef = useRef<Camera>({ x: 0, y: 0, z: 1 });
   const hoverRef = useRef(false);
   const spaceRef = useRef(false);
   const movedRef = useRef(false);
+  const showDetailRef = useRef(true);
+  const fittedNameRef = useRef<string | null>(null);
   const cardDrag = useRef<{
     id: string;
     ox: number;
@@ -178,10 +297,10 @@ export function MapCanvas({
   } | null>(null);
   const elbowDrag = useRef<{ edgeId: string } | null>(null);
 
-  const [camera, setCamera] = useState<Camera>({ x: 0, y: 0, z: 1 });
+  const [zoomPct, setZoomPct] = useState(100);
+  const [showDetail, setShowDetail] = useState(true);
   const [spaceHeld, setSpaceHeld] = useState(false);
   const [panning, setPanning] = useState(false);
-  const [layoutTick, setLayoutTick] = useState(0);
   const [hoveredLineId, setHoveredLineId] = useState<string | null>(null);
   const [hoveredPickId, setHoveredPickId] = useState<string | null>(null);
   const [draggingElbowId, setDraggingElbowId] = useState<string | null>(null);
@@ -191,8 +310,17 @@ export function MapCanvas({
 
   const applyCamera = useCallback((next: Camera) => {
     const cam = { x: next.x, y: next.y, z: clampZoom(next.z) };
+    const nextPct = Math.round(cam.z * 100);
+    const zoomChanged = nextPct !== Math.round(cameraRef.current.z * 100);
     cameraRef.current = cam;
-    setCamera(cam);
+    const world = worldRef.current;
+    if (world) world.style.transform = cameraTransform(cam);
+    const nextDetail = cam.z >= DETAIL_ZOOM;
+    if (nextDetail !== showDetailRef.current) {
+      showDetailRef.current = nextDetail;
+      setShowDetail(nextDetail);
+    }
+    if (zoomChanged) setZoomPct(nextPct);
   }, []);
 
   const zoomAt = useCallback(
@@ -222,9 +350,22 @@ export function MapCanvas({
     );
   };
 
+  const fitView = useCallback(() => {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+    applyCamera(fitCameraToMap(map.locations, viewport));
+  }, [applyCamera, map.locations]);
+
   useLayoutEffect(() => {
-    setLayoutTick((n) => n + 1);
-  }, [map.locations, map.edges, selectedId, camera]);
+    const world = worldRef.current;
+    if (world) world.style.transform = cameraTransform(cameraRef.current);
+  });
+
+  useLayoutEffect(() => {
+    if (fittedNameRef.current === map.name) return;
+    fittedNameRef.current = map.name;
+    fitView();
+  }, [fitView, map.name]);
 
   useEffect(() => {
     const viewport = viewportRef.current;
@@ -339,49 +480,55 @@ export function MapCanvas({
     }
   };
 
-  const onCardDown = (event: ReactMouseEvent, loc: Location) => {
-    if (event.button === 1 || spaceRef.current) {
-      if (event.button === 1) event.preventDefault();
-      event.stopPropagation();
-      startPan(event);
-      return;
-    }
-    if (pickMode) {
+  const onCardDown = useCallback(
+    (event: ReactMouseEvent, loc: Location) => {
+      if (event.button === 1 || spaceRef.current) {
+        if (event.button === 1) event.preventDefault();
+        event.stopPropagation();
+        startPan(event);
+        return;
+      }
+      if (pickMode) {
+        event.stopPropagation();
+        movedRef.current = false;
+        return;
+      }
+      if (readOnly) {
+        event.stopPropagation();
+        movedRef.current = false;
+        return;
+      }
+      if (event.button !== 0) return;
       event.stopPropagation();
       movedRef.current = false;
-      return;
-    }
-    if (readOnly) {
-      event.stopPropagation();
-      movedRef.current = false;
-      return;
-    }
-    if (event.button !== 0) return;
-    event.stopPropagation();
-    movedRef.current = false;
-    cardDrag.current = {
-      id: loc.id,
-      ox: loc.x,
-      oy: loc.y,
-      mx: event.clientX,
-      my: event.clientY,
-    };
-    onSelect?.(loc.id);
-  };
+      cardDrag.current = {
+        id: loc.id,
+        ox: loc.x,
+        oy: loc.y,
+        mx: event.clientX,
+        my: event.clientY,
+      };
+      onSelect?.(loc.id);
+    },
+    [onSelect, pickMode, readOnly],
+  );
 
-  const onCardClick = (event: ReactMouseEvent, loc: Location) => {
-    event.stopPropagation();
-    if (movedRef.current) return;
-    if (pickMode) {
-      onPickLocation?.(loc.id);
-      return;
-    }
-    if (onLocationClick) {
-      onLocationClick(loc.id);
-      return;
-    }
-    onSelect?.(loc.id);
-  };
+  const onCardClick = useCallback(
+    (event: ReactMouseEvent, loc: Location) => {
+      event.stopPropagation();
+      if (movedRef.current) return;
+      if (pickMode) {
+        onPickLocation?.(loc.id);
+        return;
+      }
+      if (onLocationClick) {
+        onLocationClick(loc.id);
+        return;
+      }
+      onSelect?.(loc.id);
+    },
+    [onLocationClick, onPickLocation, onSelect, pickMode],
+  );
 
   const onViewportClick = () => {
     if (movedRef.current) return;
@@ -389,89 +536,49 @@ export function MapCanvas({
     onSelect?.(null);
   };
 
-  const lines = (() => {
-    const viewport = viewportRef.current;
-    if (!viewport) return [];
-    void layoutTick;
-    const cam = camera;
-    const result: {
-      edgeId: string;
-      d: string;
-      bidir: boolean;
-      onPath: boolean;
-      handle: Pt | null;
-      fromId: string;
-      toId?: string;
-    }[] = [];
-    const seen = new Set<string>();
-    const toWorld = (p: { x: number; y: number }) =>
-      viewportToWorld(p.x, p.y, cam);
-    const toScreen = (pts: Pt[]) => pts.map((p) => worldToViewport(p, cam));
+  const pathLocKey = setToKey(pathLocationIds);
+  const pathEdgeKey = setToKey(pathEdgeIds);
+  const pathLocSet = useMemo(
+    () => new Set(pathLocKey ? pathLocKey.split('\0') : []),
+    [pathLocKey],
+  );
+  const pathEdgeSet = useMemo(
+    () => new Set(pathEdgeKey ? pathEdgeKey.split('\0') : []),
+    [pathEdgeKey],
+  );
 
-    for (const edge of map.edges) {
-      if (isOffmapEdge(edge) || isSelfLoop(edge) || !edge.toLocationId) continue;
-      const fromGrid = gridRefs.current.get(edge.fromLocationId);
-      if (!fromGrid) continue;
+  const cellsByLoc = useMemo(
+    () => indexCellsByLocation(map.edges),
+    [map.edges],
+  );
 
-      const pair = [edge.fromLocationId, edge.toLocationId].sort().join('~');
-      if (seen.has(pair)) continue;
-      seen.add(pair);
-
-      const toGrid = gridRefs.current.get(edge.toLocationId);
-      if (!toGrid) continue;
-
-      const reverse = map.edges.find(
-        (other) =>
-          other.fromLocationId === edge.toLocationId &&
-          other.toLocationId === edge.fromLocationId &&
-          !isSelfLoop(other),
+  const edges = map.edges;
+  const captionsByLoc = useMemo(() => {
+    const draft = { edges } as CwMap;
+    const out = new Map<string, CaptionLayout[]>();
+    const ids = new Set(edges.map((edge) => edge.fromLocationId));
+    if (captionPreview) ids.add(captionPreview.locationId);
+    for (const id of ids) {
+      const caps = layoutEdgeCaptions(
+        captionsForLocation(draft, id, captionPreview),
       );
-      const fromS = cellCenter(fromGrid, viewport, edge.fromCell);
-      const fromW = toWorld(fromS);
-      const via = edge.elbow ?? reverse?.elbow;
-      const ownerId = edge.elbow
-        ? edge.id
-        : reverse?.elbow
-          ? reverse.id
-          : edge.id;
-      let toW: Pt;
-      let mode: 'hv' | 'vh' | undefined;
-      if (reverse) {
-        toW = toWorld(cellCenter(toGrid, viewport, reverse.fromCell));
-      } else {
-        const boxS = cardScreenBox(toGrid, viewport);
-        const tl = toWorld({ x: boxS.left, y: boxS.top });
-        const br = toWorld({ x: boxS.right, y: boxS.bottom });
-        const box = { left: tl.x, top: tl.y, right: br.x, bottom: br.y };
-        const side = sideOfApproach(fromW, box);
-        toW = attachOnSide(box, side, fromW, via);
-        mode = modeForSide(side);
-      }
-      const screenPts = toScreen(orthogonalPoints(fromW, toW, via, mode));
-      const onPath = map.edges.some(
-        (candidate) =>
-          pathEdgeIds.includes(candidate.id) &&
-          ((candidate.fromLocationId === edge.fromLocationId &&
-            candidate.toLocationId === edge.toLocationId) ||
-            (candidate.fromLocationId === edge.toLocationId &&
-              candidate.toLocationId === edge.fromLocationId)),
-      );
-      result.push({
-        edgeId: ownerId,
-        d: pointsToPath(screenPts),
-        bidir: Boolean(reverse),
-        onPath,
-        handle: corridorHandle(screenPts),
-        fromId: edge.fromLocationId,
-        toId: edge.toLocationId,
-      });
+      if (caps.length) out.set(id, caps);
     }
-    return result;
-  })();
+    return out;
+  }, [edges, captionPreview]);
 
-  const setGridRef = useCallback((id: string, node: HTMLDivElement | null) => {
-    if (node) gridRefs.current.set(id, node);
-    else gridRefs.current.delete(id);
+  const lines = useMemo(
+    () => computeWorldLines(map.locations, map.edges, pathEdgeSet),
+    [map.locations, map.edges, pathEdgeSet],
+  );
+
+  const svgBounds = useMemo(
+    () => worldSvgBounds(map.locations, map.edges),
+    [map.locations, map.edges],
+  );
+
+  const onPickHover = useCallback((id: string | null) => {
+    setHoveredPickId(id);
   }, []);
 
   const grabCursor = panning || spaceHeld ? 'grabbing' : 'grab';
@@ -492,6 +599,7 @@ export function MapCanvas({
       onClick={onViewportClick}
     >
       <div
+        ref={worldRef}
         data-cw-map-layer="world"
         style={{
           position: 'absolute',
@@ -499,253 +607,111 @@ export function MapCanvas({
           top: 0,
           width: 0,
           height: 0,
-          transform: `translate(${camera.x}px, ${camera.y}px) scale(${camera.z})`,
           transformOrigin: '0 0',
           willChange: 'transform',
         }}
       >
-        {map.locations.map((loc) => {
-          const isSel = loc.id === selectedId;
-          const isFrom = loc.id === routeFromId;
-          const isTo = loc.id === routeToId;
-          const onPath = pathLocationIds.includes(loc.id);
-          const colors = tribeColors(loc.tribes);
-          const borderPad = colors.length > 0 ? 2 : 0;
-          const borderBg = tribeBorderBackground(colors);
-          const hints = locationHintLabels(loc);
-          const bgUrl = usableBackgroundUrl(loc.backgroundUrl);
-          const hasBg = Boolean(bgUrl && loadedBgs.has(bgUrl));
-          const captions = layoutEdgeCaptions(
-            captionsForLocation(map, loc.id, captionPreview),
-          );
-          const cardCursor = pickMode
-            ? 'pointer'
-            : readOnly
-              ? spaceHeld || panning
-                ? grabCursor
-                : onLocationClick
-                  ? 'pointer'
-                  : grabCursor
-              : undefined;
+        {map.locations.map((loc) => (
+          <LocationCard
+            key={loc.id}
+            loc={loc}
+            selected={loc.id === selectedId}
+            isFrom={loc.id === routeFromId}
+            isTo={loc.id === routeToId}
+            onPath={pathLocSet.has(loc.id)}
+            pickMode={pickMode}
+            pickHover={pickMode && hoveredPickId === loc.id}
+            readOnly={readOnly}
+            grabCursor={grabCursor}
+            spaceHeld={spaceHeld}
+            panning={panning}
+            hasClick={Boolean(onLocationClick)}
+            loadedBgs={loadedBgs}
+            marked={showDetail ? (cellsByLoc.get(loc.id) ?? EMPTY_MARKED) : EMPTY_MARKED}
+            captions={showDetail ? (captionsByLoc.get(loc.id) ?? EMPTY_CAPTIONS) : EMPTY_CAPTIONS}
+            showDetail={showDetail}
+            onCardDown={onCardDown}
+            onCardClick={onCardClick}
+            onDeleteLocation={onDeleteLocation}
+            onPickHover={onPickHover}
+          />
+        ))}
 
-          return (
-            <div
-              key={loc.id}
-              className={`absolute select-none group ${
-                readOnly || pickMode
-                  ? ''
-                  : 'cursor-grab active:cursor-grabbing'
-              }`}
-              style={{
-                left: loc.x,
-                top: loc.y,
-                cursor: cardCursor,
-              }}
-              onMouseDown={(e) => onCardDown(e, loc)}
-              onClick={(e) => onCardClick(e, loc)}
-              onMouseEnter={() => {
-                if (pickMode) setHoveredPickId(loc.id);
-              }}
-              onMouseLeave={() => {
-                setHoveredPickId((id) => (id === loc.id ? null : id));
-              }}
-            >
-              <div className="mb-1" style={{ width: MC + borderPad * 2 }}>
-                <div className="flex items-center gap-1">
-                  <span className="flex-1 truncate text-[10px] leading-none text-white">
-                    {loc.name}
-                  </span>
-                  {isFrom || isTo ? (
-                    <span className="shrink-0 text-[8px] leading-none text-white/50">
-                      {isFrom ? 'откуда' : 'куда'}
-                    </span>
-                  ) : null}
-                  {!readOnly && !pickMode && (
-                    <button
-                      type="button"
-                      className="flex-shrink-0 text-white/40 opacity-0 transition-opacity hover:text-red-400 group-hover:opacity-100"
-                      onMouseDown={(e) => e.stopPropagation()}
-                      onClick={(e) => onDeleteLocation?.(loc.id, e)}
-                      aria-label="Удалить локацию"
-                    >
-                      <X className="h-2.5 w-2.5" />
-                    </button>
-                  )}
-                </div>
-                {hints.length > 0 && (
-                  <div className="mt-0.5 flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
-                    {hints.map((hint) => (
-                      <span
-                        key={hint}
-                        className="text-[8px] leading-none text-white/45"
-                      >
-                        {hint}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              <div
-                style={{
-                  position: 'relative',
-                  padding: borderPad,
-                  background: borderBg,
-                  borderRadius: 4,
-                  boxShadow: cardOutline({
-                    selected: isSel,
-                    isFrom,
-                    isTo,
-                    onPath,
-                    pickHover: pickMode && hoveredPickId === loc.id,
-                  }),
-                }}
+        <svg
+          data-cw-map-layer="edges"
+          data-cw-map-space="world"
+          className="pointer-events-none absolute overflow-visible"
+          style={{
+            left: svgBounds.minX,
+            top: svgBounds.minY,
+            width: svgBounds.width,
+            height: svgBounds.height,
+            overflow: 'visible',
+          }}
+          viewBox={`${svgBounds.minX} ${svgBounds.minY} ${svgBounds.width} ${svgBounds.height}`}
+        >
+          {lines.map((ln) => {
+            const showHandle =
+              Boolean(onElbowChange) &&
+              Boolean(ln.handle) &&
+              (hoveredLineId === ln.edgeId ||
+                draggingElbowId === ln.edgeId ||
+                selectedId === ln.fromId ||
+                selectedId === ln.toId);
+            return (
+              <g
+                key={ln.edgeId}
+                onMouseEnter={() => setHoveredLineId(ln.edgeId)}
+                onMouseLeave={() =>
+                  setHoveredLineId((id) => (id === ln.edgeId ? null : id))
+                }
               >
-                <div
-                  ref={(node) => setGridRef(loc.id, node)}
-                  style={{
-                    ...miniGridStyle,
-                    ...(hasBg
-                      ? locationCardBackground(loc.backgroundUrl)
-                      : { backgroundColor: '#4a4a4a' }),
-                  }}
-                >
-                  {Array.from({ length: GRID_COLS * GRID_ROWS }, (_, idx) => {
-                    const y = Math.floor(idx / GRID_COLS);
-                    const x = idx % GRID_COLS;
-                    const kind = cellKind(map, loc.id, { x, y });
-                    const fill =
-                      kind === 'empty' && hasBg
-                        ? emptyCellFill(true)
-                        : cellFill(kind);
-                  return (
-                    <div
-                      key={idx}
-                      style={{ backgroundColor: fill }}
-                    />
-                  );
-                  })}
-                </div>
-                {captions.length > 0 && (
-                  <div
-                    className="pointer-events-none absolute overflow-visible"
-                    style={{
-                      left: borderPad,
-                      top: borderPad,
-                      width: MC,
-                      height: MC,
-                    }}
-                  >
-                    <svg
-                      width={MC}
-                      height={MC}
-                      className="absolute overflow-visible"
-                      style={{ overflow: 'visible' }}
-                    >
-                      {captions.map((cap) => (
-                        <line
-                          key={`lead-${cap.id}`}
-                          x1={cap.anchorX}
-                          y1={cap.anchorY}
-                          x2={cap.tipX}
-                          y2={cap.tipY}
-                          stroke="rgba(255,255,255,0.32)"
-                          strokeWidth={1}
-                        />
-                      ))}
-                    </svg>
-                    {captions.map((cap) => (
-                      <div
-                        key={cap.id}
-                        className="absolute truncate text-white"
-                        style={{
-                          left: cap.chipX,
-                          top: cap.chipY,
-                          width: cap.chipW,
-                          height: cap.chipH,
-                          paddingLeft: CHIP_PAD_X,
-                          paddingRight: CHIP_PAD_X,
-                          fontSize: CHIP_FONT_PX,
-                          lineHeight: `${cap.chipH}px`,
-                          borderRadius: 3,
-                          backgroundColor: 'rgba(20,20,20,0.9)',
-                          boxShadow: '0 1px 2px rgba(0,0,0,0.4)',
-                        }}
-                        title={cap.text}
-                      >
-                        {cap.text}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      <svg
-        data-cw-map-layer="edges"
-        className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
-      >
-        {lines.map((ln) => {
-          const showHandle =
-            Boolean(onElbowChange) &&
-            Boolean(ln.handle) &&
-            (hoveredLineId === ln.edgeId ||
-              draggingElbowId === ln.edgeId ||
-              selectedId === ln.fromId ||
-              selectedId === ln.toId);
-          return (
-            <g
-              key={ln.edgeId}
-              onMouseEnter={() => setHoveredLineId(ln.edgeId)}
-              onMouseLeave={() =>
-                setHoveredLineId((id) => (id === ln.edgeId ? null : id))
-              }
-            >
-              <path
-                d={ln.d}
-                stroke="transparent"
-                strokeWidth={16}
-                fill="none"
-                className={pickMode ? undefined : 'pointer-events-auto'}
-                style={{ pointerEvents: pickMode ? 'none' : 'stroke' }}
-              />
-              <path
-                d={ln.d}
-                stroke={ln.onPath ? '#fbbf24' : 'rgba(255,255,255,0.72)'}
-                strokeWidth={ln.onPath ? 2.4 : 1.5}
-                fill="none"
-              />
-              {showHandle && ln.handle ? (
-                <circle
-                  cx={ln.handle.x}
-                  cy={ln.handle.y}
-                  r={6}
-                  fill="#f5f5f5"
-                  stroke="#2c2c2c"
-                  strokeWidth={1.5}
-                  className={
-                    pickMode
-                      ? 'pointer-events-none'
-                      : 'pointer-events-auto cursor-grab'
-                  }
-                  onMouseDown={(event) => {
-                    if (pickMode) return;
-                    event.stopPropagation();
-                    event.preventDefault();
-                    movedRef.current = false;
-                    elbowDrag.current = { edgeId: ln.edgeId };
-                    setDraggingElbowId(ln.edgeId);
-                    setHoveredLineId(ln.edgeId);
-                  }}
+                <path
+                  d={ln.d}
+                  stroke="transparent"
+                  strokeWidth={16}
+                  fill="none"
+                  vectorEffect="nonScalingStroke"
+                  className={pickMode ? undefined : 'pointer-events-auto'}
+                  style={{ pointerEvents: pickMode ? 'none' : 'stroke' }}
                 />
-              ) : null}
-            </g>
-          );
-        })}
-      </svg>
+                <path
+                  d={ln.d}
+                  stroke={ln.onPath ? '#fbbf24' : 'rgba(255,255,255,0.72)'}
+                  strokeWidth={ln.onPath ? 2.4 : 1.5}
+                  fill="none"
+                  vectorEffect="nonScalingStroke"
+                />
+                {showHandle && ln.handle ? (
+                  <circle
+                    cx={ln.handle.x}
+                    cy={ln.handle.y}
+                    r={6}
+                    fill="#f5f5f5"
+                    stroke="#2c2c2c"
+                    strokeWidth={1.5}
+                    vectorEffect="nonScalingStroke"
+                    className={
+                      pickMode
+                        ? 'pointer-events-none'
+                        : 'pointer-events-auto cursor-grab'
+                    }
+                    onMouseDown={(event) => {
+                      if (pickMode) return;
+                      event.stopPropagation();
+                      event.preventDefault();
+                      movedRef.current = false;
+                      elbowDrag.current = { edgeId: ln.edgeId };
+                      setDraggingElbowId(ln.edgeId);
+                      setHoveredLineId(ln.edgeId);
+                    }}
+                  />
+                ) : null}
+              </g>
+            );
+          })}
+        </svg>
+      </div>
 
       {pickMode ? (
         <div
@@ -791,19 +757,19 @@ export function MapCanvas({
             type="button"
             title="Отдалить"
             className="flex h-8 w-8 items-center justify-center rounded-md text-[#f5f5f5] transition-opacity hover:opacity-85 disabled:opacity-30"
-            disabled={camera.z <= MIN_ZOOM}
+            disabled={zoomPct <= MIN_ZOOM * 100 + 0.5}
             onClick={() => zoomByButton(1 / ZOOM_BUTTON_FACTOR)}
           >
             <Minus className="h-4 w-4" />
           </button>
           <span className="w-11 text-center text-[11px] text-white/70 tabular-nums">
-            {Math.round(camera.z * 100)}%
+            {zoomPct}%
           </span>
           <button
             type="button"
             title="Приблизить"
             className="flex h-8 w-8 items-center justify-center rounded-md text-[#f5f5f5] transition-opacity hover:opacity-85 disabled:opacity-30"
-            disabled={camera.z >= MAX_ZOOM}
+            disabled={zoomPct >= MAX_ZOOM * 100 - 0.5}
             onClick={() => zoomByButton(ZOOM_BUTTON_FACTOR)}
           >
             <Plus className="h-4 w-4" />
@@ -813,7 +779,7 @@ export function MapCanvas({
           type="button"
           className="rounded-lg px-3 py-1.5 text-[11px] text-[#f5f5f5] transition-opacity hover:opacity-85"
           style={{ backgroundColor: '#2c2c2c' }}
-          onClick={() => applyCamera({ x: 0, y: 0, z: 1 })}
+          onClick={fitView}
         >
           Сбросить вид
         </button>
@@ -833,14 +799,236 @@ export function MapCanvas({
   );
 }
 
+const EMPTY_MARKED: MarkedCell[] = [];
+const EMPTY_CAPTIONS: CaptionLayout[] = [];
+
+interface LocationCardProps {
+  loc: Location;
+  selected: boolean;
+  isFrom: boolean;
+  isTo: boolean;
+  onPath: boolean;
+  pickMode: boolean;
+  pickHover: boolean;
+  readOnly: boolean;
+  grabCursor: string;
+  spaceHeld: boolean;
+  panning: boolean;
+  hasClick: boolean;
+  loadedBgs: ReadonlySet<string>;
+  marked: MarkedCell[];
+  captions: CaptionLayout[];
+  showDetail: boolean;
+  onCardDown: (event: ReactMouseEvent, loc: Location) => void;
+  onCardClick: (event: ReactMouseEvent, loc: Location) => void;
+  onDeleteLocation?: (id: string, event: ReactMouseEvent) => void;
+  onPickHover: (id: string | null) => void;
+}
+
+const LocationCard = memo(function LocationCard({
+  loc,
+  selected,
+  isFrom,
+  isTo,
+  onPath,
+  pickMode,
+  pickHover,
+  readOnly,
+  grabCursor,
+  spaceHeld,
+  panning,
+  hasClick,
+  loadedBgs,
+  marked,
+  captions,
+  showDetail,
+  onCardDown,
+  onCardClick,
+  onDeleteLocation,
+  onPickHover,
+}: LocationCardProps) {
+  const bgUrl = usableBackgroundUrl(loc.backgroundUrl);
+  const hasBg = Boolean(bgUrl && loadedBgs.has(bgUrl));
+  const colors = tribeColors(loc.tribes);
+  const borderPad = colors.length > 0 ? 2 : 0;
+  const borderBg = tribeBorderBackground(colors);
+  const hints = locationHintLabels(loc);
+  const cardCursor = pickMode
+    ? 'pointer'
+    : readOnly
+      ? spaceHeld || panning
+        ? grabCursor
+        : hasClick
+          ? 'pointer'
+          : grabCursor
+      : undefined;
+
+  return (
+    <div
+      className={`absolute select-none group ${
+        readOnly || pickMode ? '' : 'cursor-grab active:cursor-grabbing'
+      }`}
+      style={{
+        left: loc.x,
+        top: loc.y,
+        cursor: cardCursor,
+        contain: 'layout style',
+      }}
+      onMouseDown={(e) => onCardDown(e, loc)}
+      onClick={(e) => onCardClick(e, loc)}
+      onMouseEnter={() => {
+        if (pickMode) onPickHover(loc.id);
+      }}
+      onMouseLeave={() => {
+        onPickHover(null);
+      }}
+    >
+      <div className="mb-1" style={{ width: MC + borderPad * 2 }}>
+        <div className="flex items-center gap-1">
+          <span className="flex-1 truncate text-[10px] leading-none text-white">
+            {loc.name}
+          </span>
+          {isFrom || isTo ? (
+            <span className="shrink-0 text-[8px] leading-none text-white/50">
+              {isFrom ? 'откуда' : 'куда'}
+            </span>
+          ) : null}
+          {!readOnly && !pickMode && (
+            <button
+              type="button"
+              className="flex-shrink-0 text-white/40 opacity-0 transition-opacity hover:text-red-400 group-hover:opacity-100"
+              onMouseDown={(e) => e.stopPropagation()}
+              onClick={(e) => onDeleteLocation?.(loc.id, e)}
+              aria-label="Удалить локацию"
+            >
+              <X className="h-2.5 w-2.5" />
+            </button>
+          )}
+        </div>
+        {hints.length > 0 && (
+          <div className="mt-0.5 flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
+            {hints.map((hint) => (
+              <span
+                key={hint}
+                className="text-[8px] leading-none text-white/45"
+              >
+                {hint}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div
+        style={{
+          position: 'relative',
+          padding: borderPad,
+          background: borderBg,
+          borderRadius: 4,
+          boxShadow: cardOutline({
+            selected,
+            isFrom,
+            isTo,
+            onPath,
+            pickHover,
+          }),
+        }}
+      >
+        <div
+          style={{
+            ...miniGridStyle,
+            ...(hasBg
+              ? locationCardBackground(loc.backgroundUrl)
+              : { backgroundColor: '#727272' }),
+          }}
+        >
+          {showDetail ? (
+            <div
+              className="pointer-events-none absolute inset-0"
+              style={hasBg ? DIMMED_GRID_GAPS : EMPTY_GRID_GAPS}
+            />
+          ) : null}
+          {showDetail
+            ? marked.map((item) => {
+                const box = cellBox(item.cell);
+                return (
+                  <div
+                    key={`${item.cell.x},${item.cell.y}`}
+                    style={{
+                      position: 'absolute',
+                      left: box.x,
+                      top: box.y,
+                      width: box.w,
+                      height: box.h,
+                      backgroundColor: cellFill(item.kind),
+                    }}
+                  />
+                );
+              })
+            : null}
+        </div>
+        {showDetail && captions.length > 0 && (
+          <div
+            className="pointer-events-none absolute overflow-visible"
+            style={{
+              left: borderPad,
+              top: borderPad,
+              width: MC,
+              height: MC,
+            }}
+          >
+            <svg
+              width={MC}
+              height={MC}
+              className="absolute overflow-visible"
+              style={{ overflow: 'visible' }}
+            >
+              {captions.map((cap) => (
+                <line
+                  key={`lead-${cap.id}`}
+                  x1={cap.anchorX}
+                  y1={cap.anchorY}
+                  x2={cap.tipX}
+                  y2={cap.tipY}
+                  stroke="rgba(255,255,255,0.32)"
+                  strokeWidth={1}
+                />
+              ))}
+            </svg>
+            {captions.map((cap) => (
+              <div
+                key={cap.id}
+                className="absolute truncate text-white"
+                style={{
+                  left: cap.chipX,
+                  top: cap.chipY,
+                  width: cap.chipW,
+                  height: cap.chipH,
+                  paddingLeft: CHIP_PAD_X,
+                  paddingRight: CHIP_PAD_X,
+                  fontSize: CHIP_FONT_PX,
+                  lineHeight: `${cap.chipH}px`,
+                  borderRadius: 3,
+                  backgroundColor: 'rgba(20,20,20,0.9)',
+                  boxShadow: '0 1px 2px rgba(0,0,0,0.4)',
+                }}
+                title={cap.text}
+              >
+                {cap.text}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+});
+
 const miniGridStyle: CSSProperties = {
   width: MC,
   height: MC,
-  display: 'grid',
-  gridTemplateColumns: `repeat(${GRID_COLS}, 1fr)`,
-  gridTemplateRows: `repeat(${GRID_ROWS}, 1fr)`,
+  position: 'relative',
   backgroundColor: '#4a4a4a',
-  gap: '0.75px',
   borderRadius: 2,
   overflow: 'hidden',
 };

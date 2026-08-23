@@ -1,4 +1,4 @@
-import { useEffect, useState, type CSSProperties } from 'react';
+import { useEffect, useMemo, useState, type CSSProperties } from 'react';
 
 export function normalizeBackgroundUrl(value: string | undefined): string {
   return (value ?? '').trim();
@@ -91,9 +91,11 @@ export function useLoadedBackgrounds(
     };
   }, [key]);
 
-  if (!key) return EMPTY_URL_SET;
-  const wanted = new Set(key.split('\n'));
-  return new Set([...ready].filter((url) => wanted.has(url)));
+  return useMemo(() => {
+    if (!key) return EMPTY_URL_SET;
+    const wanted = new Set(key.split('\n'));
+    return new Set([...ready].filter((url) => wanted.has(url)));
+  }, [key, ready]);
 }
 
 const EMPTY_URL_SET: Set<string> = new Set();

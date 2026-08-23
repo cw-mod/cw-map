@@ -110,6 +110,17 @@ export function edgeAtCell(
 
 export type CellKind = 'empty' | 'link' | 'loop' | OffmapKind;
 
+export interface MarkedCell {
+  cell: Cell;
+  kind: CellKind;
+}
+
+function kindFromOutgoing(edge: Edge): CellKind {
+  if (isOffmapKind(edge.kind)) return edge.kind;
+  if (isSelfLoop(edge)) return 'loop';
+  return 'link';
+}
+
 export function cellKind(
   map: CwMap,
   locationId: string,
@@ -119,13 +130,25 @@ export function cellKind(
     if (edge.fromLocationId !== locationId || !cellsEqual(edge.fromCell, cell)) {
       continue;
     }
-    if (isOffmapKind(edge.kind)) {
-      return edge.kind;
-    }
-    if (isSelfLoop(edge)) return 'loop';
-    return 'link';
+    return kindFromOutgoing(edge);
   }
   return 'empty';
+}
+
+/** First outgoing edge on a cell wins — same order as `cellKind`. */
+export function indexCellsByLocation(edges: Edge[]): Map<string, MarkedCell[]> {
+  const out = new Map<string, MarkedCell[]>();
+  const seen = new Set<string>();
+  for (const edge of edges) {
+    const slot = `${edge.fromLocationId}:${cellKey(edge.fromCell)}`;
+    if (seen.has(slot)) continue;
+    seen.add(slot);
+    const item = { cell: edge.fromCell, kind: kindFromOutgoing(edge) };
+    const list = out.get(edge.fromLocationId);
+    if (list) list.push(item);
+    else out.set(edge.fromLocationId, [item]);
+  }
+  return out;
 }
 
 function compareLocationsStable(a: Location, b: Location): number {

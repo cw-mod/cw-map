@@ -1,3 +1,10 @@
+import {
+  CARD_GRID,
+  HINT_MT,
+  HINT_PX,
+  NAME_PX,
+  TITLE_MB,
+} from './cardLayout';
 import { cellFill } from './edgeKinds';
 import {
   captionsForLocation,
@@ -22,12 +29,8 @@ const EDGES_LAYER = '[data-cw-map-layer="edges"]';
 const PADDING = 32;
 const PREFERRED_SCALE = 2;
 const MAX_CANVAS = 8192;
-const MC = 120;
+const MC = CARD_GRID;
 const GRID_GAP = 0.75;
-const NAME_PX = 10;
-const HINT_PX = 8;
-const TITLE_MB = 4;
-const HINT_MT = 2;
 const LINE_STROKE = 1.5;
 const DEFAULT_LINE = 'rgba(255,255,255,0.72)';
 const CARD_SHADOW = 'rgba(0,0,0,0.45)';
@@ -133,13 +136,18 @@ function worldPolylines(
   svg: SVGSVGElement,
   cam: { x: number; y: number; z: number },
 ): Pt[][] {
+  const worldSpace =
+    svg.getAttribute('data-cw-map-space') === 'world' ||
+    Boolean(svg.closest('[data-cw-map-layer="world"]'));
   const out: Pt[][] = [];
   for (const path of svg.querySelectorAll('path')) {
     const stroke = path.getAttribute('stroke');
     if (!stroke || stroke === 'transparent') continue;
     const d = path.getAttribute('d');
     if (!d) continue;
-    const pts = parsePolyPath(d).map((p) => viewportToWorld(p.x, p.y, cam));
+    const pts = parsePolyPath(d).map((p) =>
+      worldSpace ? p : viewportToWorld(p.x, p.y, cam),
+    );
     if (pts.length >= 2) out.push(pts);
   }
   return out;
