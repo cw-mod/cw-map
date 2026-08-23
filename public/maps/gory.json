@@ -1,0 +1,7811 @@
+{
+  "version": 9,
+  "name": "Горы",
+  "comment": "Интерактивная карта Гор Озерной Вселенной\nЕще в процессе!!!!!",
+  "locations": [
+    {
+      "id": "loc_gory_000",
+      "name": "Водопад",
+      "x": 2523.585937861578,
+      "y": 19.314649025064114,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_001",
+      "name": "Горы",
+      "x": 1813.1,
+      "y": 140.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_002",
+      "name": "Горы",
+      "x": 1953.1,
+      "y": 140.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_003",
+      "name": "Горы",
+      "x": 2092.4,
+      "y": 140.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_004",
+      "name": "Горы",
+      "x": 2232.4,
+      "y": 140.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_005",
+      "name": "Горное озеро",
+      "x": 2371.7,
+      "y": 140.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_006",
+      "name": "Горы",
+      "x": 1673.8,
+      "y": 141.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_007",
+      "name": "Горы",
+      "x": 1813.1,
+      "y": 281.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_008",
+      "name": "Горы",
+      "x": 1953.1,
+      "y": 285.6537188057461,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_009",
+      "name": "Горы",
+      "x": 2092.4,
+      "y": 285.6537188057461,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_010",
+      "name": "Горы",
+      "x": 2232.4,
+      "y": 287.73057820861914,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_011",
+      "name": "Горы",
+      "x": 2371.7,
+      "y": 287.7305782086191,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_012",
+      "name": "Горы",
+      "x": 1254.5,
+      "y": 282.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_013",
+      "name": "Горы",
+      "x": 1533.8,
+      "y": 282.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_014",
+      "name": "Горы",
+      "x": 277.2,
+      "y": 286.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_015",
+      "name": "Горы",
+      "x": 1533.8,
+      "y": 421.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_016",
+      "name": "Горы",
+      "x": 1813.1,
+      "y": 421.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_017",
+      "name": "Горы",
+      "x": 1113.8,
+      "y": 422.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_018",
+      "name": "Горы",
+      "x": 1253.8,
+      "y": 422.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_019",
+      "name": "Горы",
+      "x": 1673.8,
+      "y": 422.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_020",
+      "name": "Горы",
+      "x": 277.2,
+      "y": 425.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_021",
+      "name": "Горы",
+      "x": 415.9,
+      "y": 425.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_022",
+      "name": "Горы",
+      "x": 554.5,
+      "y": 425.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_023",
+      "name": "Горы",
+      "x": 1533.8,
+      "y": 562.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_029",
+      "name": "Горы",
+      "x": 695.2,
+      "y": 563,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_030",
+      "name": "Горы",
+      "x": 1113.8,
+      "y": 563,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_031",
+      "name": "Горы",
+      "x": 1253.8,
+      "y": 563,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_033",
+      "name": "Горы",
+      "x": 0,
+      "y": 563.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_034",
+      "name": "Горы",
+      "x": 138.6,
+      "y": 563.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_035",
+      "name": "Горы",
+      "x": 277.2,
+      "y": 563.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_037",
+      "name": "Горы",
+      "x": 138.6,
+      "y": 702.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_038",
+      "name": "Горы",
+      "x": 277.2,
+      "y": 702.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_039",
+      "name": "Горы",
+      "x": 417.2,
+      "y": 702.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_040",
+      "name": "Горы",
+      "x": 556.6,
+      "y": 702.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_041",
+      "name": "Горы",
+      "x": 835.2,
+      "y": 702.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_042",
+      "name": "Горы",
+      "x": 1533.8,
+      "y": 703.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_043",
+      "name": "Горы",
+      "x": 1673.8,
+      "y": 703.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_045",
+      "name": "Горы",
+      "x": 277.2,
+      "y": 842.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_046",
+      "name": "Горы",
+      "x": 417.2,
+      "y": 842.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_047",
+      "name": "Горы",
+      "x": 696.6,
+      "y": 842.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_048",
+      "name": "Горы",
+      "x": 1533.8,
+      "y": 843.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_049",
+      "name": "Горы",
+      "x": 1813.1,
+      "y": 843.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_050",
+      "name": "Горы",
+      "x": 1394.5,
+      "y": 844.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_051",
+      "name": "Горы",
+      "x": 1673.8,
+      "y": 844.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_052",
+      "name": "Горы",
+      "x": 277.2,
+      "y": 983,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_053",
+      "name": "Горы",
+      "x": 417.2,
+      "y": 983,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_054",
+      "name": "Горы",
+      "x": 696.6,
+      "y": 983,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_055",
+      "name": "Горы",
+      "x": 975.9,
+      "y": 983,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_056",
+      "name": "Горы",
+      "x": 1813.1,
+      "y": 984.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_057",
+      "name": "Горы",
+      "x": 277.2,
+      "y": 1123.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_058",
+      "name": "Горы",
+      "x": 417.2,
+      "y": 1123.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_059",
+      "name": "Горы",
+      "x": 696.6,
+      "y": 1123.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_060",
+      "name": "Горы",
+      "x": 835.9,
+      "y": 1123.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_061",
+      "name": "Горы",
+      "x": 1813.1,
+      "y": 1125.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_062",
+      "name": "Горы",
+      "x": 1254.5,
+      "y": 1126.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_063",
+      "name": "Горы",
+      "x": 1394.5,
+      "y": 1126.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_064",
+      "name": "Горы",
+      "x": 1533.8,
+      "y": 1126.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_065",
+      "name": "Горы",
+      "x": 1673.8,
+      "y": 1126.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_066",
+      "name": "Горы",
+      "x": 696.6,
+      "y": 1263,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_067",
+      "name": "Горы",
+      "x": 835.9,
+      "y": 1263,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_068",
+      "name": "Горы",
+      "x": 277.2,
+      "y": 1264.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_069",
+      "name": "Горы",
+      "x": 417.2,
+      "y": 1264.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_070",
+      "name": "Горы",
+      "x": 1254.5,
+      "y": 1264.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_071",
+      "name": "Горы",
+      "x": 1533.8,
+      "y": 1264.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_072",
+      "name": "Горы",
+      "x": 1673.8,
+      "y": 1265.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_073",
+      "name": "Горы",
+      "x": 1813.1,
+      "y": 1265.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_074",
+      "name": "Горы",
+      "x": 277.2,
+      "y": 1403.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_075",
+      "name": "Горы",
+      "x": 415.9,
+      "y": 1403.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_076",
+      "name": "Горы",
+      "x": 556.6,
+      "y": 1403.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_077",
+      "name": "Горы",
+      "x": 696.6,
+      "y": 1403.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_078",
+      "name": "Горы",
+      "x": 975.2,
+      "y": 1404.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_079",
+      "name": "Горы",
+      "x": 1254.5,
+      "y": 1404.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_080",
+      "name": "Горы",
+      "x": 1394.5,
+      "y": 1404.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_081",
+      "name": "Горы",
+      "x": 277.2,
+      "y": 1544.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_082",
+      "name": "Горы",
+      "x": 415.9,
+      "y": 1544.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_083",
+      "name": "Горы",
+      "x": 556.6,
+      "y": 1544.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_084",
+      "name": "Горы",
+      "x": 696.6,
+      "y": 1544.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_085",
+      "name": "Горы",
+      "x": 835.9,
+      "y": 1544.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_086",
+      "name": "Горы",
+      "x": 975.2,
+      "y": 1545.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_087",
+      "name": "Горы",
+      "x": 1115.2,
+      "y": 1545.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_088",
+      "name": "Горы",
+      "x": 1254.5,
+      "y": 1545.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_089",
+      "name": "Горы",
+      "x": 1394.5,
+      "y": 1546.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_090",
+      "name": "Горы",
+      "x": 696.6,
+      "y": 1685.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_091",
+      "name": "Горы",
+      "x": 835.9,
+      "y": 1685.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_092",
+      "name": "Горы",
+      "x": 975.2,
+      "y": 1686.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_093",
+      "name": "Горы",
+      "x": 1115.2,
+      "y": 1686.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_094",
+      "name": "Горы",
+      "x": 1813.1,
+      "y": 1687.6,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_095",
+      "name": "Горы",
+      "x": 696.6,
+      "y": 1823.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_096",
+      "name": "Горы",
+      "x": 975.2,
+      "y": 1824.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_097",
+      "name": "Горы",
+      "x": 1115.2,
+      "y": 1824.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_098",
+      "name": "Горы",
+      "x": 1254.5,
+      "y": 1824.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_099",
+      "name": "Горы",
+      "x": 1394.5,
+      "y": 1824.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_100",
+      "name": "Горы",
+      "x": 1533.8,
+      "y": 1824.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_101",
+      "name": "Горы",
+      "x": 1673.8,
+      "y": 1826.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_102",
+      "name": "Горы",
+      "x": 1813.1,
+      "y": 1826.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_103",
+      "name": "Горы",
+      "x": 556.6,
+      "y": 1964.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_104",
+      "name": "Горы",
+      "x": 696.6,
+      "y": 1964.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_105",
+      "name": "Горы",
+      "x": 835.9,
+      "y": 1964.5,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_106",
+      "name": "Горы",
+      "x": 975.2,
+      "y": 1965.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_107",
+      "name": "Горы",
+      "x": 1254.5,
+      "y": 1965.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_108",
+      "name": "Горы",
+      "x": 1394.5,
+      "y": 1965.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_109",
+      "name": "Горы",
+      "x": 1533.8,
+      "y": 1965.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_110",
+      "name": "Горы",
+      "x": 1673.8,
+      "y": 1966.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_111",
+      "name": "Горы",
+      "x": 1813.1,
+      "y": 1966.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_112",
+      "name": "Горы",
+      "x": 1953.1,
+      "y": 1966.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_113",
+      "name": "Горы",
+      "x": 696.6,
+      "y": 2105.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_114",
+      "name": "Горы",
+      "x": 835.9,
+      "y": 2105.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_115",
+      "name": "Горы",
+      "x": 975.2,
+      "y": 2106.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_116",
+      "name": "Горы",
+      "x": 1115.2,
+      "y": 2106.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_117",
+      "name": "Горы",
+      "x": 1254.5,
+      "y": 2106.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_118",
+      "name": "Горы",
+      "x": 1394.5,
+      "y": 2106.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_119",
+      "name": "Горы",
+      "x": 1533.8,
+      "y": 2106.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_120",
+      "name": "Горы",
+      "x": 556.6,
+      "y": 2246.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_121",
+      "name": "Горы",
+      "x": 835.9,
+      "y": 2246.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_122",
+      "name": "Горы",
+      "x": 1115.2,
+      "y": 2246.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_123",
+      "name": "Горы",
+      "x": 1254.5,
+      "y": 2246.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_124",
+      "name": "Горы",
+      "x": 1533.8,
+      "y": 2246.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_125",
+      "name": "Горы",
+      "x": 1672.4,
+      "y": 2246.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_126",
+      "name": "Горы",
+      "x": 1394.5,
+      "y": 2247.6,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_127",
+      "name": "Горы",
+      "x": 2369.7,
+      "y": 2251.4,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_128",
+      "name": "Горы",
+      "x": 695.9,
+      "y": 2385.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_129",
+      "name": "Горы",
+      "x": 835.9,
+      "y": 2385.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_130",
+      "name": "Горы",
+      "x": 975.2,
+      "y": 2385.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_131",
+      "name": "Горы",
+      "x": 1254.5,
+      "y": 2386.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_132",
+      "name": "Горы",
+      "x": 1394.5,
+      "y": 2386.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_133",
+      "name": "Горы",
+      "x": 1534.5,
+      "y": 2386.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_134",
+      "name": "Горы",
+      "x": 1672.4,
+      "y": 2386.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_135",
+      "name": "Горы",
+      "x": 2230.3,
+      "y": 2392.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_136",
+      "name": "Горы",
+      "x": 2369.7,
+      "y": 2392.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_137",
+      "name": "Горы",
+      "x": 2090.3,
+      "y": 2393.6,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_138",
+      "name": "Горы",
+      "x": 1394.5,
+      "y": 2527.6,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_139",
+      "name": "Горы",
+      "x": 1533.1,
+      "y": 2527.6,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_140",
+      "name": "Горы",
+      "x": 1951,
+      "y": 2534.4,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_141",
+      "name": "Горы",
+      "x": 2090.3,
+      "y": 2534.4,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_142",
+      "name": "Развилка",
+      "x": 1394.5,
+      "y": 2668.3,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_143",
+      "name": "Горы",
+      "x": 1671.7,
+      "y": 2670.6,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_144",
+      "name": "Горы",
+      "x": 1811,
+      "y": 2670.6,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_145",
+      "name": "Горы",
+      "x": 1532.4,
+      "y": 2809.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_146",
+      "name": "Горы",
+      "x": 1811,
+      "y": 2812.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_147",
+      "name": "Горы",
+      "x": 1950.3,
+      "y": 2813.6,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_148",
+      "name": "Горы",
+      "x": 2090.3,
+      "y": 2813.6,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_149",
+      "name": "Горы",
+      "x": 1532.4,
+      "y": 2946.8,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_150",
+      "name": "Горы",
+      "x": 1532.4,
+      "y": 3087.6,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_151",
+      "name": "Горы",
+      "x": 1952.4,
+      "y": 3511.4,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_152",
+      "name": "Горы",
+      "x": 2091,
+      "y": 3511.4,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_153",
+      "name": "Горы",
+      "x": 2231,
+      "y": 3511.4,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_154",
+      "name": "Горы",
+      "x": 2370.3,
+      "y": 3511.4,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_155",
+      "name": "Горы",
+      "x": 2509,
+      "y": 3511.4,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_156",
+      "name": "Горы",
+      "x": 2647.6,
+      "y": 3511.4,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_157",
+      "name": "Горы",
+      "x": 2787.6,
+      "y": 3511.4,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_158",
+      "name": "Горы",
+      "x": 2926.2,
+      "y": 3511.4,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_159",
+      "name": "Горы",
+      "x": 1533.8,
+      "y": 3650.6,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_160",
+      "name": "Горы",
+      "x": 1673.1,
+      "y": 3650.6,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_161",
+      "name": "Горы",
+      "x": 1813.1,
+      "y": 3650.6,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_162",
+      "name": "Горы",
+      "x": 1953.1,
+      "y": 3650.6,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_163",
+      "name": "Горы",
+      "x": 2092.4,
+      "y": 3650.6,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_164",
+      "name": "Горы",
+      "x": 2231,
+      "y": 3650.6,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_165",
+      "name": "Горы",
+      "x": 2370.3,
+      "y": 3650.6,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_166",
+      "name": "Горы",
+      "x": 2647.6,
+      "y": 3651.4,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_167",
+      "name": "Горы",
+      "x": 2092.4,
+      "y": 3791.4,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_168",
+      "name": "Горы",
+      "x": 2231,
+      "y": 3791.4,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_169",
+      "name": "Горы",
+      "x": 2370.3,
+      "y": 3791.4,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_170",
+      "name": "Горы",
+      "x": 2647.6,
+      "y": 3791.4,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_171",
+      "name": "Горы",
+      "x": 2787.6,
+      "y": 3791.4,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_172",
+      "name": "Горы",
+      "x": 2509,
+      "y": 3792.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_gory_173",
+      "name": "Горы",
+      "x": 695.9,
+      "y": 3929.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_zone_ledopad",
+      "name": "Ледопад",
+      "x": 1973.1,
+      "y": 1687.6,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_zone_howling",
+      "name": "Воющие Коридоры",
+      "x": 2549.7,
+      "y": 2412.1,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    },
+    {
+      "id": "loc_zone_most_dvunogih",
+      "name": "Мост Двуногих",
+      "x": 2947.6,
+      "y": 3831.4,
+      "tribes": [],
+      "resources": [],
+      "actions": []
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_0003",
+      "kind": "location",
+      "fromLocationId": "loc_gory_004",
+      "fromCell": {
+        "x": 9,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_005",
+      "toCell": {
+        "x": 0,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0004",
+      "kind": "location",
+      "fromLocationId": "loc_gory_005",
+      "fromCell": {
+        "x": 0,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_004",
+      "toCell": {
+        "x": 9,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0005",
+      "kind": "location",
+      "fromLocationId": "loc_gory_007",
+      "fromCell": {
+        "x": 0,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_013",
+      "toCell": {
+        "x": 9,
+        "y": 1
+      },
+      "elbow": {
+        "x": 1713.90119121332,
+        "y": 345.9385416979699
+      }
+    },
+    {
+      "id": "e_0006",
+      "kind": "location",
+      "fromLocationId": "loc_gory_013",
+      "fromCell": {
+        "x": 9,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_007",
+      "toCell": {
+        "x": 0,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0007",
+      "kind": "location",
+      "fromLocationId": "loc_gory_007",
+      "fromCell": {
+        "x": 7,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_016",
+      "toCell": {
+        "x": 2,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0008",
+      "kind": "location",
+      "fromLocationId": "loc_gory_016",
+      "fromCell": {
+        "x": 2,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_007",
+      "toCell": {
+        "x": 7,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0009",
+      "kind": "location",
+      "fromLocationId": "loc_gory_007",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_008",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      },
+      "elbow": {
+        "x": 1943.7069844269965,
+        "y": 342.44071908782445
+      }
+    },
+    {
+      "id": "e_0010",
+      "kind": "location",
+      "fromLocationId": "loc_gory_008",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_007",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0011",
+      "kind": "location",
+      "fromLocationId": "loc_gory_012",
+      "fromCell": {
+        "x": 2,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_017",
+      "toCell": {
+        "x": 7,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0012",
+      "kind": "location",
+      "fromLocationId": "loc_gory_017",
+      "fromCell": {
+        "x": 7,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_012",
+      "toCell": {
+        "x": 2,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0013",
+      "kind": "location",
+      "fromLocationId": "loc_gory_012",
+      "fromCell": {
+        "x": 9,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_013",
+      "toCell": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0014",
+      "kind": "location",
+      "fromLocationId": "loc_gory_013",
+      "fromCell": {
+        "x": 0,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_012",
+      "toCell": {
+        "x": 9,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0015",
+      "kind": "location",
+      "fromLocationId": "loc_gory_014",
+      "fromCell": {
+        "x": 3,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_020",
+      "toCell": {
+        "x": 7,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0016",
+      "kind": "location",
+      "fromLocationId": "loc_gory_020",
+      "fromCell": {
+        "x": 7,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_014",
+      "toCell": {
+        "x": 3,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0017",
+      "kind": "location",
+      "fromLocationId": "loc_gory_014",
+      "fromCell": {
+        "x": 9,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_034",
+      "toCell": {
+        "x": 5,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0018",
+      "kind": "location",
+      "fromLocationId": "loc_gory_034",
+      "fromCell": {
+        "x": 5,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_014",
+      "toCell": {
+        "x": 9,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0019",
+      "kind": "location",
+      "fromLocationId": "loc_gory_015",
+      "fromCell": {
+        "x": 2,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_018",
+      "toCell": {
+        "x": 7,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0020",
+      "kind": "location",
+      "fromLocationId": "loc_gory_018",
+      "fromCell": {
+        "x": 7,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_015",
+      "toCell": {
+        "x": 2,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0021",
+      "kind": "location",
+      "fromLocationId": "loc_gory_015",
+      "fromCell": {
+        "x": 5,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 5,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0022",
+      "kind": "location",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 5,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_015",
+      "toCell": {
+        "x": 5,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0023",
+      "kind": "location",
+      "fromLocationId": "loc_gory_015",
+      "fromCell": {
+        "x": 7,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_019",
+      "toCell": {
+        "x": 2,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0024",
+      "kind": "location",
+      "fromLocationId": "loc_gory_019",
+      "fromCell": {
+        "x": 2,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_015",
+      "toCell": {
+        "x": 7,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0025",
+      "kind": "location",
+      "fromLocationId": "loc_gory_017",
+      "fromCell": {
+        "x": 4,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_030",
+      "toCell": {
+        "x": 3,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0026",
+      "kind": "location",
+      "fromLocationId": "loc_gory_030",
+      "fromCell": {
+        "x": 3,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_017",
+      "toCell": {
+        "x": 4,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0027",
+      "kind": "location",
+      "fromLocationId": "loc_gory_017",
+      "fromCell": {
+        "x": 9,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_018",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0028",
+      "kind": "location",
+      "fromLocationId": "loc_gory_018",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_017",
+      "toCell": {
+        "x": 9,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0029",
+      "kind": "location",
+      "fromLocationId": "loc_gory_018",
+      "fromCell": {
+        "x": 3,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_031",
+      "toCell": {
+        "x": 3,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0030",
+      "kind": "location",
+      "fromLocationId": "loc_gory_031",
+      "fromCell": {
+        "x": 3,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_018",
+      "toCell": {
+        "x": 3,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0031",
+      "kind": "location",
+      "fromLocationId": "loc_gory_019",
+      "fromCell": {
+        "x": 6,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_043",
+      "toCell": {
+        "x": 6,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0032",
+      "kind": "location",
+      "fromLocationId": "loc_gory_043",
+      "fromCell": {
+        "x": 6,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_019",
+      "toCell": {
+        "x": 6,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0033",
+      "kind": "location",
+      "fromLocationId": "loc_gory_020",
+      "fromCell": {
+        "x": 7,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_021",
+      "toCell": {
+        "x": 0,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0034",
+      "kind": "location",
+      "fromLocationId": "loc_gory_021",
+      "fromCell": {
+        "x": 0,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_020",
+      "toCell": {
+        "x": 7,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0035",
+      "kind": "location",
+      "fromLocationId": "loc_gory_021",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_035",
+      "toCell": {
+        "x": 6,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0036",
+      "kind": "location",
+      "fromLocationId": "loc_gory_035",
+      "fromCell": {
+        "x": 6,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_021",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0037",
+      "kind": "location",
+      "fromLocationId": "loc_gory_022",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_039",
+      "toCell": {
+        "x": 3,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0038",
+      "kind": "location",
+      "fromLocationId": "loc_gory_039",
+      "fromCell": {
+        "x": 3,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_022",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0043",
+      "kind": "location",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 5,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_042",
+      "toCell": {
+        "x": 5,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0044",
+      "kind": "location",
+      "fromLocationId": "loc_gory_042",
+      "fromCell": {
+        "x": 5,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 5,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0055",
+      "kind": "location",
+      "fromLocationId": "loc_gory_029",
+      "fromCell": {
+        "x": 1,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_039",
+      "toCell": {
+        "x": 3,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0056",
+      "kind": "location",
+      "fromLocationId": "loc_gory_029",
+      "fromCell": {
+        "x": 7,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_041",
+      "toCell": {
+        "x": 5,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0057",
+      "kind": "location",
+      "fromLocationId": "loc_gory_041",
+      "fromCell": {
+        "x": 5,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_029",
+      "toCell": {
+        "x": 7,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0058",
+      "kind": "location",
+      "fromLocationId": "loc_gory_030",
+      "fromCell": {
+        "x": 6,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_050",
+      "toCell": {
+        "x": 0,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0059",
+      "kind": "location",
+      "fromLocationId": "loc_gory_050",
+      "fromCell": {
+        "x": 0,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_030",
+      "toCell": {
+        "x": 6,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0061",
+      "kind": "location",
+      "fromLocationId": "loc_gory_033",
+      "fromCell": {
+        "x": 0,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_038",
+      "toCell": {
+        "x": 0,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0062",
+      "kind": "location",
+      "fromLocationId": "loc_gory_038",
+      "fromCell": {
+        "x": 0,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_033",
+      "toCell": {
+        "x": 0,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0063",
+      "kind": "location",
+      "fromLocationId": "loc_gory_033",
+      "fromCell": {
+        "x": 4,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_034",
+      "toCell": {
+        "x": 6,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0064",
+      "kind": "location",
+      "fromLocationId": "loc_gory_034",
+      "fromCell": {
+        "x": 6,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_033",
+      "toCell": {
+        "x": 4,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0065",
+      "kind": "location",
+      "fromLocationId": "loc_gory_034",
+      "fromCell": {
+        "x": 2,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_037",
+      "toCell": {
+        "x": 8,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0066",
+      "kind": "location",
+      "fromLocationId": "loc_gory_037",
+      "fromCell": {
+        "x": 8,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_034",
+      "toCell": {
+        "x": 2,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0067",
+      "kind": "location",
+      "fromLocationId": "loc_gory_034",
+      "fromCell": {
+        "x": 9,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_035",
+      "toCell": {
+        "x": 0,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0068",
+      "kind": "location",
+      "fromLocationId": "loc_gory_035",
+      "fromCell": {
+        "x": 0,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_034",
+      "toCell": {
+        "x": 9,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0069",
+      "kind": "location",
+      "fromLocationId": "loc_gory_035",
+      "fromCell": {
+        "x": 8,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_039",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0070",
+      "kind": "location",
+      "fromLocationId": "loc_gory_039",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_035",
+      "toCell": {
+        "x": 8,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0071",
+      "kind": "location",
+      "fromLocationId": "loc_gory_037",
+      "fromCell": {
+        "x": 9,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_038",
+      "toCell": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0072",
+      "kind": "location",
+      "fromLocationId": "loc_gory_038",
+      "fromCell": {
+        "x": 0,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_037",
+      "toCell": {
+        "x": 9,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0073",
+      "kind": "location",
+      "fromLocationId": "loc_gory_038",
+      "fromCell": {
+        "x": 5,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_039",
+      "toCell": {
+        "x": 3,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0074",
+      "kind": "location",
+      "fromLocationId": "loc_gory_039",
+      "fromCell": {
+        "x": 3,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_038",
+      "toCell": {
+        "x": 5,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0075",
+      "kind": "location",
+      "fromLocationId": "loc_gory_039",
+      "fromCell": {
+        "x": 3,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_047",
+      "toCell": {
+        "x": 4,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0076",
+      "kind": "location",
+      "fromLocationId": "loc_gory_047",
+      "fromCell": {
+        "x": 4,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_039",
+      "toCell": {
+        "x": 3,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0077",
+      "kind": "location",
+      "fromLocationId": "loc_gory_039",
+      "fromCell": {
+        "x": 4,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_046",
+      "toCell": {
+        "x": 4,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0078",
+      "kind": "location",
+      "fromLocationId": "loc_gory_046",
+      "fromCell": {
+        "x": 4,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_039",
+      "toCell": {
+        "x": 4,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0079",
+      "kind": "location",
+      "fromLocationId": "loc_gory_039",
+      "fromCell": {
+        "x": 9,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_040",
+      "toCell": {
+        "x": 5,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0080",
+      "kind": "location",
+      "fromLocationId": "loc_gory_040",
+      "fromCell": {
+        "x": 5,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_039",
+      "toCell": {
+        "x": 9,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0081",
+      "kind": "location",
+      "fromLocationId": "loc_gory_041",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_059",
+      "toCell": {
+        "x": 6,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0082",
+      "kind": "location",
+      "fromLocationId": "loc_gory_059",
+      "fromCell": {
+        "x": 6,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_041",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0084",
+      "kind": "location",
+      "fromLocationId": "loc_gory_042",
+      "fromCell": {
+        "x": 7,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_043",
+      "toCell": {
+        "x": 3,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0085",
+      "kind": "location",
+      "fromLocationId": "loc_gory_043",
+      "fromCell": {
+        "x": 3,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_042",
+      "toCell": {
+        "x": 7,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0086",
+      "kind": "location",
+      "fromLocationId": "loc_gory_043",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_049",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0087",
+      "kind": "location",
+      "fromLocationId": "loc_gory_049",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_043",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0088",
+      "kind": "location",
+      "fromLocationId": "loc_gory_045",
+      "fromCell": {
+        "x": 0,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_052",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0089",
+      "kind": "location",
+      "fromLocationId": "loc_gory_052",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_045",
+      "toCell": {
+        "x": 0,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0090",
+      "kind": "location",
+      "fromLocationId": "loc_gory_045",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_053",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0091",
+      "kind": "location",
+      "fromLocationId": "loc_gory_053",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_045",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0092",
+      "kind": "location",
+      "fromLocationId": "loc_gory_047",
+      "fromCell": {
+        "x": 4,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_054",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0093",
+      "kind": "location",
+      "fromLocationId": "loc_gory_054",
+      "fromCell": {
+        "x": 4,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_047",
+      "toCell": {
+        "x": 4,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0094",
+      "kind": "location",
+      "fromLocationId": "loc_gory_048",
+      "fromCell": {
+        "x": 0,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_050",
+      "toCell": {
+        "x": 9,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0095",
+      "kind": "location",
+      "fromLocationId": "loc_gory_050",
+      "fromCell": {
+        "x": 9,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_048",
+      "toCell": {
+        "x": 0,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0096",
+      "kind": "location",
+      "fromLocationId": "loc_gory_048",
+      "fromCell": {
+        "x": 8,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_056",
+      "toCell": {
+        "x": 2,
+        "y": 0
+      },
+      "elbow": {
+        "x": 1636.906017641363,
+        "y": 1021.0149798863374
+      }
+    },
+    {
+      "id": "e_0097",
+      "kind": "location",
+      "fromLocationId": "loc_gory_056",
+      "fromCell": {
+        "x": 2,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_048",
+      "toCell": {
+        "x": 8,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0098",
+      "kind": "location",
+      "fromLocationId": "loc_gory_048",
+      "fromCell": {
+        "x": 9,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_051",
+      "toCell": {
+        "x": 0,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0099",
+      "kind": "location",
+      "fromLocationId": "loc_gory_051",
+      "fromCell": {
+        "x": 0,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_048",
+      "toCell": {
+        "x": 9,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0100",
+      "kind": "location",
+      "fromLocationId": "loc_gory_049",
+      "fromCell": {
+        "x": 3,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_051",
+      "toCell": {
+        "x": 9,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0101",
+      "kind": "location",
+      "fromLocationId": "loc_gory_051",
+      "fromCell": {
+        "x": 9,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_049",
+      "toCell": {
+        "x": 3,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0102",
+      "kind": "location",
+      "fromLocationId": "loc_gory_052",
+      "fromCell": {
+        "x": 5,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_057",
+      "toCell": {
+        "x": 5,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0103",
+      "kind": "location",
+      "fromLocationId": "loc_gory_057",
+      "fromCell": {
+        "x": 5,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_052",
+      "toCell": {
+        "x": 5,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0104",
+      "kind": "location",
+      "fromLocationId": "loc_gory_053",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_058",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0105",
+      "kind": "location",
+      "fromLocationId": "loc_gory_058",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_053",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0106",
+      "kind": "location",
+      "fromLocationId": "loc_gory_054",
+      "fromCell": {
+        "x": 4,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_059",
+      "toCell": {
+        "x": 5,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0107",
+      "kind": "location",
+      "fromLocationId": "loc_gory_059",
+      "fromCell": {
+        "x": 5,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_054",
+      "toCell": {
+        "x": 4,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0108",
+      "kind": "location",
+      "fromLocationId": "loc_gory_056",
+      "fromCell": {
+        "x": 7,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_061",
+      "toCell": {
+        "x": 8,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0109",
+      "kind": "location",
+      "fromLocationId": "loc_gory_061",
+      "fromCell": {
+        "x": 8,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_056",
+      "toCell": {
+        "x": 7,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0110",
+      "kind": "location",
+      "fromLocationId": "loc_gory_057",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_068",
+      "toCell": {
+        "x": 2,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0111",
+      "kind": "location",
+      "fromLocationId": "loc_gory_068",
+      "fromCell": {
+        "x": 2,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_057",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0112",
+      "kind": "location",
+      "fromLocationId": "loc_gory_058",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_068",
+      "toCell": {
+        "x": 7,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0113",
+      "kind": "location",
+      "fromLocationId": "loc_gory_068",
+      "fromCell": {
+        "x": 7,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_058",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0114",
+      "kind": "self",
+      "fromLocationId": "loc_gory_059",
+      "fromCell": {
+        "x": 5,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_059",
+      "toCell": {
+        "x": 6,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0115",
+      "kind": "location",
+      "fromLocationId": "loc_gory_060",
+      "fromCell": {
+        "x": 5,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_059",
+      "toCell": {
+        "x": 6,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0116",
+      "kind": "location",
+      "fromLocationId": "loc_gory_060",
+      "fromCell": {
+        "x": 5,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_067",
+      "toCell": {
+        "x": 7,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0117",
+      "kind": "location",
+      "fromLocationId": "loc_gory_067",
+      "fromCell": {
+        "x": 7,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_060",
+      "toCell": {
+        "x": 5,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0118",
+      "kind": "location",
+      "fromLocationId": "loc_gory_061",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_073",
+      "toCell": {
+        "x": 5,
+        "y": 2
+      },
+      "elbow": {
+        "x": 1906.4271479678816,
+        "y": 1328.7130397171863
+      }
+    },
+    {
+      "id": "e_0119",
+      "kind": "location",
+      "fromLocationId": "loc_gory_073",
+      "fromCell": {
+        "x": 5,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_061",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0120",
+      "kind": "location",
+      "fromLocationId": "loc_gory_062",
+      "fromCell": {
+        "x": 3,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_070",
+      "toCell": {
+        "x": 6,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0121",
+      "kind": "location",
+      "fromLocationId": "loc_gory_070",
+      "fromCell": {
+        "x": 6,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_062",
+      "toCell": {
+        "x": 3,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0122",
+      "kind": "location",
+      "fromLocationId": "loc_gory_062",
+      "fromCell": {
+        "x": 8,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_063",
+      "toCell": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0123",
+      "kind": "location",
+      "fromLocationId": "loc_gory_063",
+      "fromCell": {
+        "x": 0,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_062",
+      "toCell": {
+        "x": 8,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0124",
+      "kind": "location",
+      "fromLocationId": "loc_gory_063",
+      "fromCell": {
+        "x": 9,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_064",
+      "toCell": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0125",
+      "kind": "location",
+      "fromLocationId": "loc_gory_064",
+      "fromCell": {
+        "x": 1,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_063",
+      "toCell": {
+        "x": 9,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0126",
+      "kind": "location",
+      "fromLocationId": "loc_gory_064",
+      "fromCell": {
+        "x": 9,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_065",
+      "toCell": {
+        "x": 2,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0127",
+      "kind": "location",
+      "fromLocationId": "loc_gory_065",
+      "fromCell": {
+        "x": 2,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_064",
+      "toCell": {
+        "x": 9,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0128",
+      "kind": "location",
+      "fromLocationId": "loc_gory_065",
+      "fromCell": {
+        "x": 3,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_071",
+      "toCell": {
+        "x": 9,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0129",
+      "kind": "location",
+      "fromLocationId": "loc_gory_071",
+      "fromCell": {
+        "x": 9,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_065",
+      "toCell": {
+        "x": 3,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0130",
+      "kind": "location",
+      "fromLocationId": "loc_gory_065",
+      "fromCell": {
+        "x": 9,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_073",
+      "toCell": {
+        "x": 5,
+        "y": 1
+      },
+      "elbow": {
+        "x": 1804.3541148700806,
+        "y": 1276.8913459906105
+      }
+    },
+    {
+      "id": "e_0131",
+      "kind": "location",
+      "fromLocationId": "loc_gory_073",
+      "fromCell": {
+        "x": 5,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_065",
+      "toCell": {
+        "x": 9,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0132",
+      "kind": "location",
+      "fromLocationId": "loc_gory_066",
+      "fromCell": {
+        "x": 0,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_067",
+      "toCell": {
+        "x": 7,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0133",
+      "kind": "location",
+      "fromLocationId": "loc_gory_067",
+      "fromCell": {
+        "x": 7,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_066",
+      "toCell": {
+        "x": 0,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0134",
+      "kind": "location",
+      "fromLocationId": "loc_gory_068",
+      "fromCell": {
+        "x": 7,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_075",
+      "toCell": {
+        "x": 0,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0135",
+      "kind": "location",
+      "fromLocationId": "loc_gory_075",
+      "fromCell": {
+        "x": 0,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_068",
+      "toCell": {
+        "x": 7,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0136",
+      "kind": "location",
+      "fromLocationId": "loc_gory_069",
+      "fromCell": {
+        "x": 9,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_074",
+      "toCell": {
+        "x": 3,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0137",
+      "kind": "location",
+      "fromLocationId": "loc_gory_074",
+      "fromCell": {
+        "x": 3,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_069",
+      "toCell": {
+        "x": 9,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0138",
+      "kind": "location",
+      "fromLocationId": "loc_gory_070",
+      "fromCell": {
+        "x": 4,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_079",
+      "toCell": {
+        "x": 5,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0139",
+      "kind": "location",
+      "fromLocationId": "loc_gory_079",
+      "fromCell": {
+        "x": 5,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_070",
+      "toCell": {
+        "x": 4,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0140",
+      "kind": "location",
+      "fromLocationId": "loc_gory_072",
+      "fromCell": {
+        "x": 7,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_073",
+      "toCell": {
+        "x": 5,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0141",
+      "kind": "location",
+      "fromLocationId": "loc_gory_073",
+      "fromCell": {
+        "x": 5,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_088",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      },
+      "elbow": {
+        "x": 1878.4289011744238,
+        "y": 1516.158723504039
+      }
+    },
+    {
+      "id": "e_0142",
+      "kind": "location",
+      "fromLocationId": "loc_gory_088",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_073",
+      "toCell": {
+        "x": 5,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0143",
+      "kind": "location",
+      "fromLocationId": "loc_gory_074",
+      "fromCell": {
+        "x": 4,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_075",
+      "toCell": {
+        "x": 4,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0144",
+      "kind": "location",
+      "fromLocationId": "loc_gory_075",
+      "fromCell": {
+        "x": 4,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_074",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0145",
+      "kind": "location",
+      "fromLocationId": "loc_gory_074",
+      "fromCell": {
+        "x": 5,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_081",
+      "toCell": {
+        "x": 3,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0146",
+      "kind": "location",
+      "fromLocationId": "loc_gory_081",
+      "fromCell": {
+        "x": 3,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_074",
+      "toCell": {
+        "x": 5,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0147",
+      "kind": "location",
+      "fromLocationId": "loc_gory_075",
+      "fromCell": {
+        "x": 8,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_076",
+      "toCell": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0148",
+      "kind": "location",
+      "fromLocationId": "loc_gory_076",
+      "fromCell": {
+        "x": 0,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_075",
+      "toCell": {
+        "x": 8,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0149",
+      "kind": "location",
+      "fromLocationId": "loc_gory_076",
+      "fromCell": {
+        "x": 8,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_082",
+      "toCell": {
+        "x": 7,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0150",
+      "kind": "location",
+      "fromLocationId": "loc_gory_082",
+      "fromCell": {
+        "x": 7,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_076",
+      "toCell": {
+        "x": 8,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0151",
+      "kind": "location",
+      "fromLocationId": "loc_gory_077",
+      "fromCell": {
+        "x": 1,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_085",
+      "toCell": {
+        "x": 1,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0152",
+      "kind": "location",
+      "fromLocationId": "loc_gory_085",
+      "fromCell": {
+        "x": 1,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_077",
+      "toCell": {
+        "x": 1,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0153",
+      "kind": "location",
+      "fromLocationId": "loc_gory_077",
+      "fromCell": {
+        "x": 1,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_084",
+      "toCell": {
+        "x": 6,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0154",
+      "kind": "location",
+      "fromLocationId": "loc_gory_084",
+      "fromCell": {
+        "x": 6,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_077",
+      "toCell": {
+        "x": 1,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0155",
+      "kind": "location",
+      "fromLocationId": "loc_gory_079",
+      "fromCell": {
+        "x": 4,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_088",
+      "toCell": {
+        "x": 4,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0156",
+      "kind": "location",
+      "fromLocationId": "loc_gory_088",
+      "fromCell": {
+        "x": 4,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_079",
+      "toCell": {
+        "x": 4,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0157",
+      "kind": "location",
+      "fromLocationId": "loc_gory_080",
+      "fromCell": {
+        "x": 0,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_088",
+      "toCell": {
+        "x": 9,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0158",
+      "kind": "location",
+      "fromLocationId": "loc_gory_088",
+      "fromCell": {
+        "x": 9,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_080",
+      "toCell": {
+        "x": 0,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0159",
+      "kind": "location",
+      "fromLocationId": "loc_gory_081",
+      "fromCell": {
+        "x": 6,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_082",
+      "toCell": {
+        "x": 1,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0160",
+      "kind": "location",
+      "fromLocationId": "loc_gory_082",
+      "fromCell": {
+        "x": 1,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_081",
+      "toCell": {
+        "x": 6,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0161",
+      "kind": "location",
+      "fromLocationId": "loc_gory_082",
+      "fromCell": {
+        "x": 4,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_083",
+      "toCell": {
+        "x": 3,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0162",
+      "kind": "location",
+      "fromLocationId": "loc_gory_083",
+      "fromCell": {
+        "x": 3,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_082",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0163",
+      "kind": "location",
+      "fromLocationId": "loc_gory_083",
+      "fromCell": {
+        "x": 5,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_084",
+      "toCell": {
+        "x": 3,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0164",
+      "kind": "location",
+      "fromLocationId": "loc_gory_084",
+      "fromCell": {
+        "x": 3,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_083",
+      "toCell": {
+        "x": 5,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0165",
+      "kind": "location",
+      "fromLocationId": "loc_gory_084",
+      "fromCell": {
+        "x": 2,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_090",
+      "toCell": {
+        "x": 1,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0166",
+      "kind": "location",
+      "fromLocationId": "loc_gory_090",
+      "fromCell": {
+        "x": 1,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_084",
+      "toCell": {
+        "x": 2,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0167",
+      "kind": "location",
+      "fromLocationId": "loc_gory_085",
+      "fromCell": {
+        "x": 8,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_086",
+      "toCell": {
+        "x": 2,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0168",
+      "kind": "location",
+      "fromLocationId": "loc_gory_086",
+      "fromCell": {
+        "x": 2,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_085",
+      "toCell": {
+        "x": 8,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0169",
+      "kind": "location",
+      "fromLocationId": "loc_gory_086",
+      "fromCell": {
+        "x": 7,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_087",
+      "toCell": {
+        "x": 3,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0170",
+      "kind": "location",
+      "fromLocationId": "loc_gory_087",
+      "fromCell": {
+        "x": 3,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_086",
+      "toCell": {
+        "x": 7,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0171",
+      "kind": "location",
+      "fromLocationId": "loc_gory_087",
+      "fromCell": {
+        "x": 6,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_088",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0172",
+      "kind": "location",
+      "fromLocationId": "loc_gory_093",
+      "fromCell": {
+        "x": 4,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_087",
+      "toCell": {
+        "x": 6,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0173",
+      "kind": "location",
+      "fromLocationId": "loc_gory_093",
+      "fromCell": {
+        "x": 5,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_087",
+      "toCell": {
+        "x": 6,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0174",
+      "kind": "location",
+      "fromLocationId": "loc_gory_088",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_089",
+      "toCell": {
+        "x": 0,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0175",
+      "kind": "location",
+      "fromLocationId": "loc_gory_089",
+      "fromCell": {
+        "x": 0,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_088",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0176",
+      "kind": "location",
+      "fromLocationId": "loc_gory_090",
+      "fromCell": {
+        "x": 8,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_091",
+      "toCell": {
+        "x": 2,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0177",
+      "kind": "location",
+      "fromLocationId": "loc_gory_091",
+      "fromCell": {
+        "x": 2,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_090",
+      "toCell": {
+        "x": 8,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0178",
+      "kind": "location",
+      "fromLocationId": "loc_gory_091",
+      "fromCell": {
+        "x": 7,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_092",
+      "toCell": {
+        "x": 3,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0179",
+      "kind": "location",
+      "fromLocationId": "loc_gory_092",
+      "fromCell": {
+        "x": 3,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_091",
+      "toCell": {
+        "x": 7,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0180",
+      "kind": "location",
+      "fromLocationId": "loc_gory_092",
+      "fromCell": {
+        "x": 6,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_093",
+      "toCell": {
+        "x": 4,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0181",
+      "kind": "location",
+      "fromLocationId": "loc_gory_093",
+      "fromCell": {
+        "x": 4,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_092",
+      "toCell": {
+        "x": 6,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0182",
+      "kind": "location",
+      "fromLocationId": "loc_gory_093",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_097",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0183",
+      "kind": "location",
+      "fromLocationId": "loc_gory_097",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_093",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0184",
+      "kind": "location",
+      "fromLocationId": "loc_gory_094",
+      "fromCell": {
+        "x": 3,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_102",
+      "toCell": {
+        "x": 2,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0185",
+      "kind": "location",
+      "fromLocationId": "loc_gory_102",
+      "fromCell": {
+        "x": 2,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_094",
+      "toCell": {
+        "x": 3,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0186",
+      "kind": "location",
+      "fromLocationId": "loc_gory_095",
+      "fromCell": {
+        "x": 2,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_103",
+      "toCell": {
+        "x": 7,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0187",
+      "kind": "location",
+      "fromLocationId": "loc_gory_103",
+      "fromCell": {
+        "x": 7,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_095",
+      "toCell": {
+        "x": 2,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0188",
+      "kind": "location",
+      "fromLocationId": "loc_gory_095",
+      "fromCell": {
+        "x": 9,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_096",
+      "toCell": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0189",
+      "kind": "location",
+      "fromLocationId": "loc_gory_096",
+      "fromCell": {
+        "x": 0,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_095",
+      "toCell": {
+        "x": 9,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0190",
+      "kind": "location",
+      "fromLocationId": "loc_gory_096",
+      "fromCell": {
+        "x": 9,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_097",
+      "toCell": {
+        "x": 0,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0191",
+      "kind": "location",
+      "fromLocationId": "loc_gory_097",
+      "fromCell": {
+        "x": 0,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_096",
+      "toCell": {
+        "x": 9,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0192",
+      "kind": "location",
+      "fromLocationId": "loc_gory_097",
+      "fromCell": {
+        "x": 7,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_116",
+      "toCell": {
+        "x": 2,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0193",
+      "kind": "location",
+      "fromLocationId": "loc_gory_116",
+      "fromCell": {
+        "x": 2,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_097",
+      "toCell": {
+        "x": 7,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0194",
+      "kind": "location",
+      "fromLocationId": "loc_gory_103",
+      "fromCell": {
+        "x": 4,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_120",
+      "toCell": {
+        "x": 3,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0195",
+      "kind": "location",
+      "fromLocationId": "loc_gory_120",
+      "fromCell": {
+        "x": 3,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_103",
+      "toCell": {
+        "x": 4,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0196",
+      "kind": "location",
+      "fromLocationId": "loc_gory_103",
+      "fromCell": {
+        "x": 9,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_104",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0197",
+      "kind": "location",
+      "fromLocationId": "loc_gory_104",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_103",
+      "toCell": {
+        "x": 9,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0198",
+      "kind": "location",
+      "fromLocationId": "loc_gory_104",
+      "fromCell": {
+        "x": 3,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_113",
+      "toCell": {
+        "x": 3,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0199",
+      "kind": "location",
+      "fromLocationId": "loc_gory_113",
+      "fromCell": {
+        "x": 3,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_104",
+      "toCell": {
+        "x": 3,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0200",
+      "kind": "location",
+      "fromLocationId": "loc_gory_104",
+      "fromCell": {
+        "x": 7,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_105",
+      "toCell": {
+        "x": 2,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0201",
+      "kind": "location",
+      "fromLocationId": "loc_gory_105",
+      "fromCell": {
+        "x": 2,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_104",
+      "toCell": {
+        "x": 7,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0202",
+      "kind": "location",
+      "fromLocationId": "loc_gory_105",
+      "fromCell": {
+        "x": 5,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_114",
+      "toCell": {
+        "x": 5,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0203",
+      "kind": "location",
+      "fromLocationId": "loc_gory_114",
+      "fromCell": {
+        "x": 5,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_105",
+      "toCell": {
+        "x": 5,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0204",
+      "kind": "location",
+      "fromLocationId": "loc_gory_105",
+      "fromCell": {
+        "x": 7,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_106",
+      "toCell": {
+        "x": 2,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0205",
+      "kind": "location",
+      "fromLocationId": "loc_gory_106",
+      "fromCell": {
+        "x": 2,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_105",
+      "toCell": {
+        "x": 7,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0206",
+      "kind": "location",
+      "fromLocationId": "loc_gory_106",
+      "fromCell": {
+        "x": 6,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_115",
+      "toCell": {
+        "x": 6,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0207",
+      "kind": "location",
+      "fromLocationId": "loc_gory_115",
+      "fromCell": {
+        "x": 6,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_106",
+      "toCell": {
+        "x": 6,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0208",
+      "kind": "location",
+      "fromLocationId": "loc_gory_113",
+      "fromCell": {
+        "x": 6,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_121",
+      "toCell": {
+        "x": 2,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0209",
+      "kind": "location",
+      "fromLocationId": "loc_gory_121",
+      "fromCell": {
+        "x": 2,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_113",
+      "toCell": {
+        "x": 6,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0210",
+      "kind": "location",
+      "fromLocationId": "loc_gory_114",
+      "fromCell": {
+        "x": 5,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_121",
+      "toCell": {
+        "x": 5,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0211",
+      "kind": "location",
+      "fromLocationId": "loc_gory_121",
+      "fromCell": {
+        "x": 5,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_114",
+      "toCell": {
+        "x": 5,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0212",
+      "kind": "location",
+      "fromLocationId": "loc_gory_115",
+      "fromCell": {
+        "x": 3,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_121",
+      "toCell": {
+        "x": 7,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0213",
+      "kind": "location",
+      "fromLocationId": "loc_gory_121",
+      "fromCell": {
+        "x": 7,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_115",
+      "toCell": {
+        "x": 3,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0214",
+      "kind": "location",
+      "fromLocationId": "loc_gory_115",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_122",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0215",
+      "kind": "location",
+      "fromLocationId": "loc_gory_122",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_115",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0216",
+      "kind": "location",
+      "fromLocationId": "loc_gory_116",
+      "fromCell": {
+        "x": 4,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_122",
+      "toCell": {
+        "x": 6,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0217",
+      "kind": "location",
+      "fromLocationId": "loc_gory_122",
+      "fromCell": {
+        "x": 6,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_116",
+      "toCell": {
+        "x": 4,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0218",
+      "kind": "location",
+      "fromLocationId": "loc_gory_120",
+      "fromCell": {
+        "x": 6,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_128",
+      "toCell": {
+        "x": 0,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0219",
+      "kind": "location",
+      "fromLocationId": "loc_gory_128",
+      "fromCell": {
+        "x": 0,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_120",
+      "toCell": {
+        "x": 6,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0220",
+      "kind": "location",
+      "fromLocationId": "loc_gory_122",
+      "fromCell": {
+        "x": 3,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_130",
+      "toCell": {
+        "x": 9,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0221",
+      "kind": "location",
+      "fromLocationId": "loc_gory_130",
+      "fromCell": {
+        "x": 9,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_122",
+      "toCell": {
+        "x": 3,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0222",
+      "kind": "location",
+      "fromLocationId": "loc_gory_124",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_132",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0223",
+      "kind": "location",
+      "fromLocationId": "loc_gory_132",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_124",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0224",
+      "kind": "location",
+      "fromLocationId": "loc_gory_124",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_125",
+      "toCell": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0225",
+      "kind": "location",
+      "fromLocationId": "loc_gory_125",
+      "fromCell": {
+        "x": 0,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_124",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0226",
+      "kind": "location",
+      "fromLocationId": "loc_gory_124",
+      "fromCell": {
+        "x": 9,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_125",
+      "toCell": {
+        "x": 0,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0227",
+      "kind": "location",
+      "fromLocationId": "loc_gory_125",
+      "fromCell": {
+        "x": 0,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_124",
+      "toCell": {
+        "x": 9,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0228",
+      "kind": "location",
+      "fromLocationId": "loc_gory_124",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_133",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0229",
+      "kind": "location",
+      "fromLocationId": "loc_gory_133",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_124",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0230",
+      "kind": "location",
+      "fromLocationId": "loc_gory_125",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_134",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0231",
+      "kind": "location",
+      "fromLocationId": "loc_gory_134",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_125",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0232",
+      "kind": "location",
+      "fromLocationId": "loc_gory_125",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_134",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0233",
+      "kind": "location",
+      "fromLocationId": "loc_gory_134",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_125",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0234",
+      "kind": "location",
+      "fromLocationId": "loc_gory_126",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_132",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0235",
+      "kind": "location",
+      "fromLocationId": "loc_gory_132",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_126",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0236",
+      "kind": "location",
+      "fromLocationId": "loc_gory_127",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_135",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0237",
+      "kind": "location",
+      "fromLocationId": "loc_gory_135",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_127",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0238",
+      "kind": "location",
+      "fromLocationId": "loc_gory_128",
+      "fromCell": {
+        "x": 9,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_129",
+      "toCell": {
+        "x": 0,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0239",
+      "kind": "location",
+      "fromLocationId": "loc_gory_129",
+      "fromCell": {
+        "x": 0,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_128",
+      "toCell": {
+        "x": 9,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0240",
+      "kind": "location",
+      "fromLocationId": "loc_gory_129",
+      "fromCell": {
+        "x": 8,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_142",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0241",
+      "kind": "location",
+      "fromLocationId": "loc_gory_142",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_129",
+      "toCell": {
+        "x": 8,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0242",
+      "kind": "location",
+      "fromLocationId": "loc_gory_129",
+      "fromCell": {
+        "x": 9,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_130",
+      "toCell": {
+        "x": 0,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0243",
+      "kind": "location",
+      "fromLocationId": "loc_gory_130",
+      "fromCell": {
+        "x": 0,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_129",
+      "toCell": {
+        "x": 9,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0244",
+      "kind": "location",
+      "fromLocationId": "loc_gory_131",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_132",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0245",
+      "kind": "location",
+      "fromLocationId": "loc_gory_132",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_131",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0246",
+      "kind": "location",
+      "fromLocationId": "loc_gory_133",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_138",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0247",
+      "kind": "location",
+      "fromLocationId": "loc_gory_138",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_133",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0248",
+      "kind": "location",
+      "fromLocationId": "loc_gory_133",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_134",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0249",
+      "kind": "location",
+      "fromLocationId": "loc_gory_134",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_133",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0250",
+      "kind": "self",
+      "fromLocationId": "loc_gory_135",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_135",
+      "toCell": {
+        "x": 8,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0251",
+      "kind": "location",
+      "fromLocationId": "loc_gory_135",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_141",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0252",
+      "kind": "location",
+      "fromLocationId": "loc_gory_141",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_135",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0253",
+      "kind": "location",
+      "fromLocationId": "loc_gory_135",
+      "fromCell": {
+        "x": 8,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_136",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0254",
+      "kind": "location",
+      "fromLocationId": "loc_gory_136",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_135",
+      "toCell": {
+        "x": 8,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0255",
+      "kind": "self",
+      "fromLocationId": "loc_gory_136",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_136",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0256",
+      "kind": "self",
+      "fromLocationId": "loc_gory_136",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_136",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0257",
+      "kind": "location",
+      "fromLocationId": "loc_gory_137",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_139",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0258",
+      "kind": "location",
+      "fromLocationId": "loc_gory_139",
+      "fromCell": {
+        "x": 4,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_137",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0259",
+      "kind": "location",
+      "fromLocationId": "loc_gory_137",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_140",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0260",
+      "kind": "location",
+      "fromLocationId": "loc_gory_140",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_137",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0261",
+      "kind": "location",
+      "fromLocationId": "loc_gory_138",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_142",
+      "toCell": {
+        "x": 5,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0262",
+      "kind": "location",
+      "fromLocationId": "loc_gory_142",
+      "fromCell": {
+        "x": 5,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_138",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0263",
+      "kind": "location",
+      "fromLocationId": "loc_gory_139",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_142",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0264",
+      "kind": "location",
+      "fromLocationId": "loc_gory_142",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_139",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0265",
+      "kind": "location",
+      "fromLocationId": "loc_gory_142",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_145",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0266",
+      "kind": "location",
+      "fromLocationId": "loc_gory_145",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_142",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0267",
+      "kind": "location",
+      "fromLocationId": "loc_gory_143",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_145",
+      "toCell": {
+        "x": 5,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0268",
+      "kind": "location",
+      "fromLocationId": "loc_gory_145",
+      "fromCell": {
+        "x": 5,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_143",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0269",
+      "kind": "location",
+      "fromLocationId": "loc_gory_143",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_144",
+      "toCell": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0270",
+      "kind": "location",
+      "fromLocationId": "loc_gory_144",
+      "fromCell": {
+        "x": 1,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_143",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0271",
+      "kind": "location",
+      "fromLocationId": "loc_gory_144",
+      "fromCell": {
+        "x": 5,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_146",
+      "toCell": {
+        "x": 3,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0272",
+      "kind": "location",
+      "fromLocationId": "loc_gory_146",
+      "fromCell": {
+        "x": 3,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_144",
+      "toCell": {
+        "x": 5,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0273",
+      "kind": "location",
+      "fromLocationId": "loc_gory_145",
+      "fromCell": {
+        "x": 4,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_149",
+      "toCell": {
+        "x": 6,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0274",
+      "kind": "location",
+      "fromLocationId": "loc_gory_149",
+      "fromCell": {
+        "x": 6,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_145",
+      "toCell": {
+        "x": 4,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0275",
+      "kind": "location",
+      "fromLocationId": "loc_gory_146",
+      "fromCell": {
+        "x": 7,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_147",
+      "toCell": {
+        "x": 2,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0276",
+      "kind": "location",
+      "fromLocationId": "loc_gory_147",
+      "fromCell": {
+        "x": 2,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_146",
+      "toCell": {
+        "x": 7,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0277",
+      "kind": "location",
+      "fromLocationId": "loc_gory_149",
+      "fromCell": {
+        "x": 3,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_150",
+      "toCell": {
+        "x": 7,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0278",
+      "kind": "location",
+      "fromLocationId": "loc_gory_150",
+      "fromCell": {
+        "x": 7,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_149",
+      "toCell": {
+        "x": 3,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0279",
+      "kind": "location",
+      "fromLocationId": "loc_gory_151",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_162",
+      "toCell": {
+        "x": 3,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0280",
+      "kind": "location",
+      "fromLocationId": "loc_gory_162",
+      "fromCell": {
+        "x": 3,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_151",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0281",
+      "kind": "self",
+      "fromLocationId": "loc_gory_152",
+      "fromCell": {
+        "x": 6,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_152",
+      "toCell": {
+        "x": 7,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0282",
+      "kind": "location",
+      "fromLocationId": "loc_gory_153",
+      "fromCell": {
+        "x": 5,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_154",
+      "toCell": {
+        "x": 3,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0283",
+      "kind": "location",
+      "fromLocationId": "loc_gory_154",
+      "fromCell": {
+        "x": 3,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_153",
+      "toCell": {
+        "x": 5,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0284",
+      "kind": "location",
+      "fromLocationId": "loc_gory_154",
+      "fromCell": {
+        "x": 4,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_165",
+      "toCell": {
+        "x": 5,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0285",
+      "kind": "location",
+      "fromLocationId": "loc_gory_165",
+      "fromCell": {
+        "x": 5,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_154",
+      "toCell": {
+        "x": 4,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0286",
+      "kind": "location",
+      "fromLocationId": "loc_gory_156",
+      "fromCell": {
+        "x": 9,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_166",
+      "toCell": {
+        "x": 4,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0287",
+      "kind": "location",
+      "fromLocationId": "loc_gory_166",
+      "fromCell": {
+        "x": 4,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_156",
+      "toCell": {
+        "x": 9,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0288",
+      "kind": "location",
+      "fromLocationId": "loc_gory_157",
+      "fromCell": {
+        "x": 5,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_158",
+      "toCell": {
+        "x": 3,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0289",
+      "kind": "location",
+      "fromLocationId": "loc_gory_158",
+      "fromCell": {
+        "x": 3,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_157",
+      "toCell": {
+        "x": 5,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0290",
+      "kind": "location",
+      "fromLocationId": "loc_gory_159",
+      "fromCell": {
+        "x": 7,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_160",
+      "toCell": {
+        "x": 3,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0291",
+      "kind": "location",
+      "fromLocationId": "loc_gory_160",
+      "fromCell": {
+        "x": 3,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_159",
+      "toCell": {
+        "x": 7,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0292",
+      "kind": "location",
+      "fromLocationId": "loc_gory_161",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_162",
+      "toCell": {
+        "x": 4,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0293",
+      "kind": "location",
+      "fromLocationId": "loc_gory_162",
+      "fromCell": {
+        "x": 4,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_161",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0294",
+      "kind": "location",
+      "fromLocationId": "loc_gory_163",
+      "fromCell": {
+        "x": 1,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_167",
+      "toCell": {
+        "x": 7,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0295",
+      "kind": "location",
+      "fromLocationId": "loc_gory_167",
+      "fromCell": {
+        "x": 7,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_163",
+      "toCell": {
+        "x": 1,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0296",
+      "kind": "location",
+      "fromLocationId": "loc_gory_163",
+      "fromCell": {
+        "x": 9,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_164",
+      "toCell": {
+        "x": 0,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0297",
+      "kind": "location",
+      "fromLocationId": "loc_gory_164",
+      "fromCell": {
+        "x": 0,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_163",
+      "toCell": {
+        "x": 9,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0298",
+      "kind": "location",
+      "fromLocationId": "loc_gory_164",
+      "fromCell": {
+        "x": 9,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_165",
+      "toCell": {
+        "x": 0,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0299",
+      "kind": "location",
+      "fromLocationId": "loc_gory_165",
+      "fromCell": {
+        "x": 0,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_164",
+      "toCell": {
+        "x": 9,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0300",
+      "kind": "location",
+      "fromLocationId": "loc_gory_167",
+      "fromCell": {
+        "x": 9,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_168",
+      "toCell": {
+        "x": 0,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0301",
+      "kind": "location",
+      "fromLocationId": "loc_gory_168",
+      "fromCell": {
+        "x": 0,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_167",
+      "toCell": {
+        "x": 9,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0302",
+      "kind": "location",
+      "fromLocationId": "loc_gory_168",
+      "fromCell": {
+        "x": 9,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_169",
+      "toCell": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0303",
+      "kind": "location",
+      "fromLocationId": "loc_gory_169",
+      "fromCell": {
+        "x": 1,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_168",
+      "toCell": {
+        "x": 9,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0304",
+      "kind": "location",
+      "fromLocationId": "loc_gory_169",
+      "fromCell": {
+        "x": 2,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_172",
+      "toCell": {
+        "x": 4,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0305",
+      "kind": "location",
+      "fromLocationId": "loc_gory_172",
+      "fromCell": {
+        "x": 4,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_169",
+      "toCell": {
+        "x": 2,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0306",
+      "kind": "location",
+      "fromLocationId": "loc_gory_170",
+      "fromCell": {
+        "x": 5,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_172",
+      "toCell": {
+        "x": 7,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0307",
+      "kind": "location",
+      "fromLocationId": "loc_gory_172",
+      "fromCell": {
+        "x": 7,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_170",
+      "toCell": {
+        "x": 5,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0308",
+      "kind": "location",
+      "fromLocationId": "loc_gory_170",
+      "fromCell": {
+        "x": 5,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_171",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0309",
+      "kind": "location",
+      "fromLocationId": "loc_gory_171",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_170",
+      "toCell": {
+        "x": 5,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0310",
+      "kind": "self",
+      "fromLocationId": "loc_gory_006",
+      "fromCell": {
+        "x": 5,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_006",
+      "toCell": {
+        "x": 5,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0311",
+      "kind": "self",
+      "fromLocationId": "loc_gory_008",
+      "fromCell": {
+        "x": 4,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_008",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0312",
+      "kind": "self",
+      "fromLocationId": "loc_gory_020",
+      "fromCell": {
+        "x": 6,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_020",
+      "toCell": {
+        "x": 6,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0313",
+      "kind": "self",
+      "fromLocationId": "loc_gory_021",
+      "fromCell": {
+        "x": 8,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_021",
+      "toCell": {
+        "x": 8,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0314",
+      "kind": "self",
+      "fromLocationId": "loc_gory_022",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_022",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0315",
+      "kind": "self",
+      "fromLocationId": "loc_gory_033",
+      "fromCell": {
+        "x": 4,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_033",
+      "toCell": {
+        "x": 4,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0316",
+      "kind": "self",
+      "fromLocationId": "loc_gory_033",
+      "fromCell": {
+        "x": 9,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_033",
+      "toCell": {
+        "x": 9,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0317",
+      "kind": "self",
+      "fromLocationId": "loc_gory_033",
+      "fromCell": {
+        "x": 8,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_033",
+      "toCell": {
+        "x": 8,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0318",
+      "kind": "self",
+      "fromLocationId": "loc_gory_033",
+      "fromCell": {
+        "x": 2,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_033",
+      "toCell": {
+        "x": 2,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0319",
+      "kind": "self",
+      "fromLocationId": "loc_gory_033",
+      "fromCell": {
+        "x": 7,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_033",
+      "toCell": {
+        "x": 7,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0320",
+      "kind": "self",
+      "fromLocationId": "loc_gory_034",
+      "fromCell": {
+        "x": 3,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_034",
+      "toCell": {
+        "x": 3,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0321",
+      "kind": "self",
+      "fromLocationId": "loc_gory_034",
+      "fromCell": {
+        "x": 4,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_034",
+      "toCell": {
+        "x": 4,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0322",
+      "kind": "self",
+      "fromLocationId": "loc_gory_037",
+      "fromCell": {
+        "x": 6,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_037",
+      "toCell": {
+        "x": 6,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0323",
+      "kind": "self",
+      "fromLocationId": "loc_gory_037",
+      "fromCell": {
+        "x": 7,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_037",
+      "toCell": {
+        "x": 7,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0324",
+      "kind": "self",
+      "fromLocationId": "loc_gory_038",
+      "fromCell": {
+        "x": 7,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_038",
+      "toCell": {
+        "x": 7,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0325",
+      "kind": "self",
+      "fromLocationId": "loc_gory_038",
+      "fromCell": {
+        "x": 8,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_038",
+      "toCell": {
+        "x": 8,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0326",
+      "kind": "self",
+      "fromLocationId": "loc_gory_038",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_038",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0327",
+      "kind": "self",
+      "fromLocationId": "loc_gory_038",
+      "fromCell": {
+        "x": 9,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_038",
+      "toCell": {
+        "x": 9,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0328",
+      "kind": "self",
+      "fromLocationId": "loc_gory_038",
+      "fromCell": {
+        "x": 9,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_038",
+      "toCell": {
+        "x": 9,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0329",
+      "kind": "self",
+      "fromLocationId": "loc_gory_038",
+      "fromCell": {
+        "x": 9,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_038",
+      "toCell": {
+        "x": 9,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0330",
+      "kind": "self",
+      "fromLocationId": "loc_gory_038",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_038",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0331",
+      "kind": "self",
+      "fromLocationId": "loc_gory_041",
+      "fromCell": {
+        "x": 4,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_041",
+      "toCell": {
+        "x": 4,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0332",
+      "kind": "self",
+      "fromLocationId": "loc_gory_046",
+      "fromCell": {
+        "x": 4,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_046",
+      "toCell": {
+        "x": 4,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0333",
+      "kind": "self",
+      "fromLocationId": "loc_gory_047",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_047",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0334",
+      "kind": "self",
+      "fromLocationId": "loc_gory_054",
+      "fromCell": {
+        "x": 4,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_054",
+      "toCell": {
+        "x": 4,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0335",
+      "kind": "self",
+      "fromLocationId": "loc_gory_054",
+      "fromCell": {
+        "x": 4,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_054",
+      "toCell": {
+        "x": 4,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0336",
+      "kind": "self",
+      "fromLocationId": "loc_gory_055",
+      "fromCell": {
+        "x": 0,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_055",
+      "toCell": {
+        "x": 0,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0337",
+      "kind": "self",
+      "fromLocationId": "loc_gory_055",
+      "fromCell": {
+        "x": 6,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_055",
+      "toCell": {
+        "x": 6,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0338",
+      "kind": "self",
+      "fromLocationId": "loc_gory_056",
+      "fromCell": {
+        "x": 4,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_056",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0339",
+      "kind": "self",
+      "fromLocationId": "loc_gory_060",
+      "fromCell": {
+        "x": 7,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_060",
+      "toCell": {
+        "x": 7,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0340",
+      "kind": "self",
+      "fromLocationId": "loc_gory_062",
+      "fromCell": {
+        "x": 2,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_062",
+      "toCell": {
+        "x": 2,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0341",
+      "kind": "self",
+      "fromLocationId": "loc_gory_062",
+      "fromCell": {
+        "x": 7,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_062",
+      "toCell": {
+        "x": 7,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0342",
+      "kind": "self",
+      "fromLocationId": "loc_gory_069",
+      "fromCell": {
+        "x": 4,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_069",
+      "toCell": {
+        "x": 4,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0343",
+      "kind": "self",
+      "fromLocationId": "loc_gory_069",
+      "fromCell": {
+        "x": 3,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_069",
+      "toCell": {
+        "x": 3,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0344",
+      "kind": "self",
+      "fromLocationId": "loc_gory_069",
+      "fromCell": {
+        "x": 5,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_069",
+      "toCell": {
+        "x": 5,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0345",
+      "kind": "self",
+      "fromLocationId": "loc_gory_071",
+      "fromCell": {
+        "x": 3,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_071",
+      "toCell": {
+        "x": 3,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0346",
+      "kind": "self",
+      "fromLocationId": "loc_gory_071",
+      "fromCell": {
+        "x": 4,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_071",
+      "toCell": {
+        "x": 4,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0347",
+      "kind": "self",
+      "fromLocationId": "loc_gory_071",
+      "fromCell": {
+        "x": 7,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_071",
+      "toCell": {
+        "x": 7,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0348",
+      "kind": "self",
+      "fromLocationId": "loc_gory_071",
+      "fromCell": {
+        "x": 8,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_071",
+      "toCell": {
+        "x": 8,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0349",
+      "kind": "self",
+      "fromLocationId": "loc_gory_071",
+      "fromCell": {
+        "x": 9,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_071",
+      "toCell": {
+        "x": 9,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0350",
+      "kind": "self",
+      "fromLocationId": "loc_gory_073",
+      "fromCell": {
+        "x": 5,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_073",
+      "toCell": {
+        "x": 5,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0351",
+      "kind": "self",
+      "fromLocationId": "loc_gory_077",
+      "fromCell": {
+        "x": 1,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_077",
+      "toCell": {
+        "x": 1,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0352",
+      "kind": "self",
+      "fromLocationId": "loc_gory_088",
+      "fromCell": {
+        "x": 4,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_088",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0353",
+      "kind": "self",
+      "fromLocationId": "loc_gory_088",
+      "fromCell": {
+        "x": 5,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_088",
+      "toCell": {
+        "x": 5,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0354",
+      "kind": "self",
+      "fromLocationId": "loc_gory_088",
+      "fromCell": {
+        "x": 4,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_088",
+      "toCell": {
+        "x": 4,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0355",
+      "kind": "self",
+      "fromLocationId": "loc_gory_088",
+      "fromCell": {
+        "x": 5,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_088",
+      "toCell": {
+        "x": 5,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0356",
+      "kind": "self",
+      "fromLocationId": "loc_gory_093",
+      "fromCell": {
+        "x": 8,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_093",
+      "toCell": {
+        "x": 8,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0357",
+      "kind": "self",
+      "fromLocationId": "loc_gory_093",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_093",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0358",
+      "kind": "self",
+      "fromLocationId": "loc_gory_119",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_119",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0359",
+      "kind": "self",
+      "fromLocationId": "loc_gory_119",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_119",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0360",
+      "kind": "self",
+      "fromLocationId": "loc_gory_119",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_119",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0361",
+      "kind": "self",
+      "fromLocationId": "loc_gory_125",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_125",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0362",
+      "kind": "self",
+      "fromLocationId": "loc_gory_127",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_127",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0363",
+      "kind": "self",
+      "fromLocationId": "loc_gory_127",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_127",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0364",
+      "kind": "self",
+      "fromLocationId": "loc_gory_132",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_132",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0365",
+      "kind": "self",
+      "fromLocationId": "loc_gory_134",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_134",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0366",
+      "kind": "self",
+      "fromLocationId": "loc_gory_137",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_137",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0367",
+      "kind": "self",
+      "fromLocationId": "loc_gory_139",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_139",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0368",
+      "kind": "self",
+      "fromLocationId": "loc_gory_139",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_139",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0369",
+      "kind": "self",
+      "fromLocationId": "loc_gory_139",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_139",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0370",
+      "kind": "self",
+      "fromLocationId": "loc_gory_141",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_141",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0371",
+      "kind": "self",
+      "fromLocationId": "loc_gory_145",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_145",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0372",
+      "kind": "self",
+      "fromLocationId": "loc_gory_145",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_145",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0373",
+      "kind": "self",
+      "fromLocationId": "loc_gory_145",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_145",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0374",
+      "kind": "self",
+      "fromLocationId": "loc_gory_148",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_148",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0375",
+      "kind": "self",
+      "fromLocationId": "loc_gory_148",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_148",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0376",
+      "kind": "self",
+      "fromLocationId": "loc_gory_162",
+      "fromCell": {
+        "x": 7,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_162",
+      "toCell": {
+        "x": 7,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0377",
+      "kind": "self",
+      "fromLocationId": "loc_gory_162",
+      "fromCell": {
+        "x": 7,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_162",
+      "toCell": {
+        "x": 7,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0378",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_005",
+      "fromCell": {
+        "x": 7,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0379",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_005",
+      "fromCell": {
+        "x": 8,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0380",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_005",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0381",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_005",
+      "fromCell": {
+        "x": 9,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0382",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_038",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0383",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_038",
+      "fromCell": {
+        "x": 0,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0384",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_039",
+      "fromCell": {
+        "x": 2,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0385",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_039",
+      "fromCell": {
+        "x": 6,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0386",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_047",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0387",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_055",
+      "fromCell": {
+        "x": 4,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0388",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_071",
+      "fromCell": {
+        "x": 5,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0389",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_075",
+      "fromCell": {
+        "x": 3,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0390",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_114",
+      "fromCell": {
+        "x": 0,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0391",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_114",
+      "fromCell": {
+        "x": 9,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0392",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_138",
+      "fromCell": {
+        "x": 4,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0393",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_138",
+      "fromCell": {
+        "x": 5,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0394",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_138",
+      "fromCell": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0395",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_138",
+      "fromCell": {
+        "x": 5,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0396",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_138",
+      "fromCell": {
+        "x": 4,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0397",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_138",
+      "fromCell": {
+        "x": 5,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0398",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_140",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0399",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_140",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0400",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_141",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0401",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_144",
+      "fromCell": {
+        "x": 9,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0402",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_146",
+      "fromCell": {
+        "x": 5,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0403",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_149",
+      "fromCell": {
+        "x": 6,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0404",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_149",
+      "fromCell": {
+        "x": 7,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0405",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_149",
+      "fromCell": {
+        "x": 7,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0406",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_153",
+      "fromCell": {
+        "x": 8,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0407",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_156",
+      "fromCell": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0408",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_156",
+      "fromCell": {
+        "x": 5,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0409",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_158",
+      "fromCell": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0410",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_158",
+      "fromCell": {
+        "x": 6,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0411",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_160",
+      "fromCell": {
+        "x": 7,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0412",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_160",
+      "fromCell": {
+        "x": 8,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0413",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_162",
+      "fromCell": {
+        "x": 4,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0414",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_162",
+      "fromCell": {
+        "x": 4,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0415",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_162",
+      "fromCell": {
+        "x": 5,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0416",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_162",
+      "fromCell": {
+        "x": 5,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0417",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_163",
+      "fromCell": {
+        "x": 5,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0418",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_165",
+      "fromCell": {
+        "x": 3,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0419",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_165",
+      "fromCell": {
+        "x": 6,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0420",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_165",
+      "fromCell": {
+        "x": 8,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0421",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_166",
+      "fromCell": {
+        "x": 8,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0422",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_167",
+      "fromCell": {
+        "x": 5,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0423",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_168",
+      "fromCell": {
+        "x": 4,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0424",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_169",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0425",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_170",
+      "fromCell": {
+        "x": 2,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_0426",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_170",
+      "fromCell": {
+        "x": 7,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0427",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_170",
+      "fromCell": {
+        "x": 5,
+        "y": 3
+      }
+    },
+    {
+      "id": "e_0428",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_171",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0429",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_171",
+      "fromCell": {
+        "x": 6,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0430",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_171",
+      "fromCell": {
+        "x": 8,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0433",
+      "kind": "location",
+      "fromLocationId": "loc_gory_094",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_zone_ledopad",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0434",
+      "kind": "location",
+      "fromLocationId": "loc_gory_171",
+      "fromCell": {
+        "x": 5,
+        "y": 2
+      },
+      "toLocationId": "loc_zone_most_dvunogih",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0435",
+      "kind": "location",
+      "fromLocationId": "loc_gory_071",
+      "fromCell": {
+        "x": 0,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_079",
+      "toCell": {
+        "x": 8,
+        "y": 0
+      },
+      "elbow": {
+        "x": 1384.5927137077745,
+        "y": 1434.6398579154477
+      }
+    },
+    {
+      "id": "e_0436",
+      "kind": "location",
+      "fromLocationId": "loc_gory_010",
+      "fromCell": {
+        "x": 7,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_011",
+      "toCell": {
+        "x": 0,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_0437",
+      "kind": "location",
+      "fromLocationId": "loc_gory_069",
+      "fromCell": {
+        "x": 8,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_047",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0438",
+      "kind": "location",
+      "fromLocationId": "loc_gory_088",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_071",
+      "toCell": {
+        "x": 0,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0439",
+      "kind": "location",
+      "fromLocationId": "loc_gory_099",
+      "fromCell": {
+        "x": 6,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_100",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0440",
+      "kind": "location",
+      "fromLocationId": "loc_gory_100",
+      "fromCell": {
+        "x": 6,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_101",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0441",
+      "kind": "location",
+      "fromLocationId": "loc_gory_101",
+      "fromCell": {
+        "x": 6,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_102",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_0442",
+      "kind": "location",
+      "fromLocationId": "loc_gory_107",
+      "fromCell": {
+        "x": 6,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_098",
+      "toCell": {
+        "x": 6,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_0443",
+      "kind": "location",
+      "fromLocationId": "loc_gory_137",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_135",
+      "toCell": {
+        "x": 0,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_0432",
+      "kind": "camp",
+      "fromLocationId": "loc_gory_005",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "label": "Побережье ГО",
+      "showLabel": true
+    },
+    {
+      "id": "e_mt60gf3v_lokgn8",
+      "kind": "location",
+      "fromLocationId": "loc_gory_000",
+      "fromCell": {
+        "x": 0,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_005",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      },
+      "elbow": {
+        "x": 2502.426828452455,
+        "y": 204.80881550220747
+      }
+    },
+    {
+      "id": "e_mt60gsrj_8zvczo",
+      "kind": "location",
+      "fromLocationId": "loc_gory_005",
+      "fromCell": {
+        "x": 9,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_000",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_mt60h59k_tev07q",
+      "kind": "location",
+      "fromLocationId": "loc_gory_004",
+      "fromCell": {
+        "x": 0,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_003",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_mt60iage_yrbrke",
+      "kind": "location",
+      "fromLocationId": "loc_gory_003",
+      "fromCell": {
+        "x": 1,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_002",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_mt60ijav_ub5yp3",
+      "kind": "location",
+      "fromLocationId": "loc_gory_002",
+      "fromCell": {
+        "x": 2,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_001",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_mt60iqqf_afozg6",
+      "kind": "location",
+      "fromLocationId": "loc_gory_001",
+      "fromCell": {
+        "x": 3,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_006",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_mt60j9hg_xiytl5",
+      "kind": "location",
+      "fromLocationId": "loc_gory_006",
+      "fromCell": {
+        "x": 4,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_007",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      },
+      "elbow": {
+        "x": 1869.9542975160937,
+        "y": 286.4897392969133
+      }
+    },
+    {
+      "id": "e_mt60xbdh_kqc9ij",
+      "kind": "location",
+      "fromLocationId": "loc_gory_011",
+      "fromCell": {
+        "x": 8,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_005",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_mt60xnb3_37t9oe",
+      "kind": "location",
+      "fromLocationId": "loc_gory_009",
+      "fromCell": {
+        "x": 6,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_010",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_mt60xu33_lqn901",
+      "kind": "location",
+      "fromLocationId": "loc_gory_008",
+      "fromCell": {
+        "x": 5,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_009",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_mt619q1c_vcpmhv",
+      "kind": "climb",
+      "fromLocationId": "loc_gory_007",
+      "fromCell": {
+        "x": 9,
+        "y": 3
+      },
+      "label": "Уступы под водопадом"
+    },
+    {
+      "id": "e_mt629uia_hbspy4",
+      "kind": "location",
+      "fromLocationId": "loc_gory_016",
+      "fromCell": {
+        "x": 4,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_049",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_mt62c57m_iyxrht",
+      "kind": "location",
+      "fromLocationId": "loc_gory_049",
+      "fromCell": {
+        "x": 6,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_016",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_mt62qgp8_jm2gd7",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 0,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_mt62r2sm_w6b4o8",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 1,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 1,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_mt62r4w0_wr1nay",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 2,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 2,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_mt62r6ll_7uisid",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 3,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 3,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_mt62rbfa_ibjblb",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 4,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 4,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_mt62rfso_kp8otz",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 6,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 6,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_mt62ril4_ecu84s",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 7,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 7,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_mt62rkxu_b8vrrl",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 8,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 8,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_mt62rp5n_58l7zh",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 9,
+        "y": 0
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 9,
+        "y": 0
+      }
+    },
+    {
+      "id": "e_mt62rrym_nctqj8",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 9,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 9,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_mt62rtew_5qkq05",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 9,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 9,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_mt62s4bh_vu3fhg",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 9,
+        "y": 3
+      },
+      "label": "Мыши",
+      "showLabel": true
+    },
+    {
+      "id": "e_mt62s7sj_l7vhrm",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 9,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 9,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_mt62s9fa_qkpc0e",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 9,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 9,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_mt62saw1_3ss96b",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 8,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 8,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_mt62scuv_hzv8bb",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 7,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 7,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_mt62srki_86zbs5",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 6,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 6,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_mt62stkb_5odj4t",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 4,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 4,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_mt62svlw_xcqxjv",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 3,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 3,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_mt62sxdb_q7tdeg",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 2,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 2,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_mt62szgu_otx3is",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 1,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 1,
+        "y": 5
+      }
+    },
+    {
+      "id": "e_mt62tl07_z13pf2",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 0,
+        "y": 5
+      },
+      "label": "Камни"
+    },
+    {
+      "id": "e_mt62u8px_2lr8qm",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 0,
+        "y": 1
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 0,
+        "y": 1
+      }
+    },
+    {
+      "id": "e_mt62ubny_orhvmc",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 0,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 0,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_mt62uy1h_1064ph",
+      "kind": "deadend",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 0,
+        "y": 3
+      },
+      "label": "Ветки и мох"
+    },
+    {
+      "id": "e_mt62v1bj_tgf7nc",
+      "kind": "self",
+      "fromLocationId": "loc_gory_023",
+      "fromCell": {
+        "x": 0,
+        "y": 4
+      },
+      "toLocationId": "loc_gory_023",
+      "toCell": {
+        "x": 0,
+        "y": 4
+      }
+    },
+    {
+      "id": "e_mt62w24k_hmsus8",
+      "kind": "location",
+      "fromLocationId": "loc_gory_031",
+      "fromCell": {
+        "x": 6,
+        "y": 5
+      },
+      "toLocationId": "loc_gory_042",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_mt62wa2n_nbfn1g",
+      "kind": "location",
+      "fromLocationId": "loc_gory_042",
+      "fromCell": {
+        "x": 2,
+        "y": 3
+      },
+      "toLocationId": "loc_gory_031",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      }
+    },
+    {
+      "id": "e_mt639ifw_l3j49z",
+      "kind": "location",
+      "fromLocationId": "loc_gory_088",
+      "fromCell": {
+        "x": 0,
+        "y": 2
+      },
+      "toLocationId": "loc_gory_051",
+      "toCell": {
+        "x": 4,
+        "y": 2
+      },
+      "elbow": {
+        "x": 1434.0170302638658,
+        "y": 1057.6704584922418
+      }
+    }
+  ]
+}
